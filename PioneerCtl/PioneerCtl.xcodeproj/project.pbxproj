@@ -1,0 +1,508 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		82006794190106080082A6B1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82006793190106080082A6B1 /* Cocoa.framework */; };
+		8200679E190106080082A6B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8200679C190106080082A6B1 /* InfoPlist.strings */; };
+		820067A0190106080082A6B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8200679F190106080082A6B1 /* main.m */; };
+		820067A4190106080082A6B1 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 820067A2190106080082A6B1 /* Credits.rtf */; };
+		820067A7190106080082A6B1 /* AKAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 820067A6190106080082A6B1 /* AKAppDelegate.m */; };
+		820067AA190106080082A6B1 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 820067A8190106080082A6B1 /* MainMenu.xib */; };
+		820067AC190106080082A6B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 820067AB190106080082A6B1 /* Images.xcassets */; };
+		820067B3190106080082A6B1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820067B2190106080082A6B1 /* XCTest.framework */; };
+		820067B4190106080082A6B1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82006793190106080082A6B1 /* Cocoa.framework */; };
+		820067BC190106080082A6B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 820067BA190106080082A6B1 /* InfoPlist.strings */; };
+		820067BE190106080082A6B1 /* PioneerCtlTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 820067BD190106080082A6B1 /* PioneerCtlTests.m */; };
+		820067CB190106140082A6B1 /* ORSSerialPort.m in Sources */ = {isa = PBXBuildFile; fileRef = 820067C8190106140082A6B1 /* ORSSerialPort.m */; };
+		820067CC190106140082A6B1 /* ORSSerialPortManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 820067CA190106140082A6B1 /* ORSSerialPortManager.m */; };
+		820067CF1901065B0082A6B1 /* AKApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 820067CE1901065B0082A6B1 /* AKApp.m */; };
+		820067D2190106EF0082A6B1 /* AKPioneerTapeRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 820067D1190106EF0082A6B1 /* AKPioneerTapeRecorder.m */; };
+		820067D419010DA40082A6B1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820067D319010DA40082A6B1 /* IOKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		820067B5190106080082A6B1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82006788190106080082A6B1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8200678F190106080082A6B1;
+			remoteInfo = PioneerCtl;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		82006790190106080082A6B1 /* PioneerCtl.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PioneerCtl.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		82006793190106080082A6B1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		82006796190106080082A6B1 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		82006797190106080082A6B1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		82006798190106080082A6B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8200679B190106080082A6B1 /* PioneerCtl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PioneerCtl-Info.plist"; sourceTree = "<group>"; };
+		8200679D190106080082A6B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8200679F190106080082A6B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		820067A1190106080082A6B1 /* PioneerCtl-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PioneerCtl-Prefix.pch"; sourceTree = "<group>"; };
+		820067A3190106080082A6B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		820067A5190106080082A6B1 /* AKAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AKAppDelegate.h; sourceTree = "<group>"; };
+		820067A6190106080082A6B1 /* AKAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AKAppDelegate.m; sourceTree = "<group>"; };
+		820067A9190106080082A6B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		820067AB190106080082A6B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		820067B1190106080082A6B1 /* PioneerCtlTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PioneerCtlTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		820067B2190106080082A6B1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		820067B9190106080082A6B1 /* PioneerCtlTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PioneerCtlTests-Info.plist"; sourceTree = "<group>"; };
+		820067BB190106080082A6B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		820067BD190106080082A6B1 /* PioneerCtlTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PioneerCtlTests.m; sourceTree = "<group>"; };
+		820067C7190106140082A6B1 /* ORSSerialPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPort.h; sourceTree = "<group>"; };
+		820067C8190106140082A6B1 /* ORSSerialPort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPort.m; sourceTree = "<group>"; };
+		820067C9190106140082A6B1 /* ORSSerialPortManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPortManager.h; sourceTree = "<group>"; };
+		820067CA190106140082A6B1 /* ORSSerialPortManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPortManager.m; sourceTree = "<group>"; };
+		820067CD1901065B0082A6B1 /* AKApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKApp.h; sourceTree = "<group>"; };
+		820067CE1901065B0082A6B1 /* AKApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKApp.m; sourceTree = "<group>"; };
+		820067D0190106EF0082A6B1 /* AKPioneerTapeRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPioneerTapeRecorder.h; sourceTree = "<group>"; };
+		820067D1190106EF0082A6B1 /* AKPioneerTapeRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPioneerTapeRecorder.m; sourceTree = "<group>"; };
+		820067D319010DA40082A6B1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8200678D190106080082A6B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820067D419010DA40082A6B1 /* IOKit.framework in Frameworks */,
+				82006794190106080082A6B1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820067AE190106080082A6B1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820067B4190106080082A6B1 /* Cocoa.framework in Frameworks */,
+				820067B3190106080082A6B1 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		82006787190106080082A6B1 = {
+			isa = PBXGroup;
+			children = (
+				82006799190106080082A6B1 /* PioneerCtl */,
+				820067B7190106080082A6B1 /* PioneerCtlTests */,
+				82006792190106080082A6B1 /* Frameworks */,
+				82006791190106080082A6B1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		82006791190106080082A6B1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82006790190106080082A6B1 /* PioneerCtl.app */,
+				820067B1190106080082A6B1 /* PioneerCtlTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		82006792190106080082A6B1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				820067D319010DA40082A6B1 /* IOKit.framework */,
+				82006793190106080082A6B1 /* Cocoa.framework */,
+				820067B2190106080082A6B1 /* XCTest.framework */,
+				82006795190106080082A6B1 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		82006795190106080082A6B1 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				82006796190106080082A6B1 /* AppKit.framework */,
+				82006797190106080082A6B1 /* CoreData.framework */,
+				82006798190106080082A6B1 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		82006799190106080082A6B1 /* PioneerCtl */ = {
+			isa = PBXGroup;
+			children = (
+				820067C7190106140082A6B1 /* ORSSerialPort.h */,
+				820067C8190106140082A6B1 /* ORSSerialPort.m */,
+				820067C9190106140082A6B1 /* ORSSerialPortManager.h */,
+				820067CA190106140082A6B1 /* ORSSerialPortManager.m */,
+				820067A5190106080082A6B1 /* AKAppDelegate.h */,
+				820067A6190106080082A6B1 /* AKAppDelegate.m */,
+				820067D0190106EF0082A6B1 /* AKPioneerTapeRecorder.h */,
+				820067D1190106EF0082A6B1 /* AKPioneerTapeRecorder.m */,
+				820067A8190106080082A6B1 /* MainMenu.xib */,
+				820067CD1901065B0082A6B1 /* AKApp.h */,
+				820067CE1901065B0082A6B1 /* AKApp.m */,
+				820067AB190106080082A6B1 /* Images.xcassets */,
+				8200679A190106080082A6B1 /* Supporting Files */,
+			);
+			path = PioneerCtl;
+			sourceTree = "<group>";
+		};
+		8200679A190106080082A6B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8200679B190106080082A6B1 /* PioneerCtl-Info.plist */,
+				8200679C190106080082A6B1 /* InfoPlist.strings */,
+				8200679F190106080082A6B1 /* main.m */,
+				820067A1190106080082A6B1 /* PioneerCtl-Prefix.pch */,
+				820067A2190106080082A6B1 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		820067B7190106080082A6B1 /* PioneerCtlTests */ = {
+			isa = PBXGroup;
+			children = (
+				820067BD190106080082A6B1 /* PioneerCtlTests.m */,
+				820067B8190106080082A6B1 /* Supporting Files */,
+			);
+			path = PioneerCtlTests;
+			sourceTree = "<group>";
+		};
+		820067B8190106080082A6B1 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				820067B9190106080082A6B1 /* PioneerCtlTests-Info.plist */,
+				820067BA190106080082A6B1 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8200678F190106080082A6B1 /* PioneerCtl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 820067C1190106080082A6B1 /* Build configuration list for PBXNativeTarget "PioneerCtl" */;
+			buildPhases = (
+				8200678C190106080082A6B1 /* Sources */,
+				8200678D190106080082A6B1 /* Frameworks */,
+				8200678E190106080082A6B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PioneerCtl;
+			productName = PioneerCtl;
+			productReference = 82006790190106080082A6B1 /* PioneerCtl.app */;
+			productType = "com.apple.product-type.application";
+		};
+		820067B0190106080082A6B1 /* PioneerCtlTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 820067C4190106080082A6B1 /* Build configuration list for PBXNativeTarget "PioneerCtlTests" */;
+			buildPhases = (
+				820067AD190106080082A6B1 /* Sources */,
+				820067AE190106080082A6B1 /* Frameworks */,
+				820067AF190106080082A6B1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				820067B6190106080082A6B1 /* PBXTargetDependency */,
+			);
+			name = PioneerCtlTests;
+			productName = PioneerCtlTests;
+			productReference = 820067B1190106080082A6B1 /* PioneerCtlTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		82006788190106080082A6B1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = AK;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Akasaka Ryuunosuke";
+				TargetAttributes = {
+					820067B0190106080082A6B1 = {
+						TestTargetID = 8200678F190106080082A6B1;
+					};
+				};
+			};
+			buildConfigurationList = 8200678B190106080082A6B1 /* Build configuration list for PBXProject "PioneerCtl" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 82006787190106080082A6B1;
+			productRefGroup = 82006791190106080082A6B1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8200678F190106080082A6B1 /* PioneerCtl */,
+				820067B0190106080082A6B1 /* PioneerCtlTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8200678E190106080082A6B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8200679E190106080082A6B1 /* InfoPlist.strings in Resources */,
+				820067AC190106080082A6B1 /* Images.xcassets in Resources */,
+				820067A4190106080082A6B1 /* Credits.rtf in Resources */,
+				820067AA190106080082A6B1 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820067AF190106080082A6B1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820067BC190106080082A6B1 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8200678C190106080082A6B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820067D2190106EF0082A6B1 /* AKPioneerTapeRecorder.m in Sources */,
+				820067CF1901065B0082A6B1 /* AKApp.m in Sources */,
+				820067CB190106140082A6B1 /* ORSSerialPort.m in Sources */,
+				820067CC190106140082A6B1 /* ORSSerialPortManager.m in Sources */,
+				820067A7190106080082A6B1 /* AKAppDelegate.m in Sources */,
+				820067A0190106080082A6B1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		820067AD190106080082A6B1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				820067BE190106080082A6B1 /* PioneerCtlTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		820067B6190106080082A6B1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8200678F190106080082A6B1 /* PioneerCtl */;
+			targetProxy = 820067B5190106080082A6B1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8200679C190106080082A6B1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8200679D190106080082A6B1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		820067A2190106080082A6B1 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				820067A3190106080082A6B1 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		820067A8190106080082A6B1 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				820067A9190106080082A6B1 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		820067BA190106080082A6B1 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				820067BB190106080082A6B1 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		820067BF190106080082A6B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		820067C0190106080082A6B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		820067C2190106080082A6B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PioneerCtl/PioneerCtl-Prefix.pch";
+				INFOPLIST_FILE = "PioneerCtl/PioneerCtl-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		820067C3190106080082A6B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PioneerCtl/PioneerCtl-Prefix.pch";
+				INFOPLIST_FILE = "PioneerCtl/PioneerCtl-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		820067C5190106080082A6B1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PioneerCtl.app/Contents/MacOS/PioneerCtl";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PioneerCtl/PioneerCtl-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PioneerCtlTests/PioneerCtlTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		820067C6190106080082A6B1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PioneerCtl.app/Contents/MacOS/PioneerCtl";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PioneerCtl/PioneerCtl-Prefix.pch";
+				INFOPLIST_FILE = "PioneerCtlTests/PioneerCtlTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8200678B190106080082A6B1 /* Build configuration list for PBXProject "PioneerCtl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820067BF190106080082A6B1 /* Debug */,
+				820067C0190106080082A6B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		820067C1190106080082A6B1 /* Build configuration list for PBXNativeTarget "PioneerCtl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820067C2190106080082A6B1 /* Debug */,
+				820067C3190106080082A6B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		820067C4190106080082A6B1 /* Build configuration list for PBXNativeTarget "PioneerCtlTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				820067C5190106080082A6B1 /* Debug */,
+				820067C6190106080082A6B1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 82006788190106080082A6B1 /* Project object */;
+}
