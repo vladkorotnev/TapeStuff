@@ -62,6 +62,7 @@
     currentIdx++;
     if(currentIdx >= files.count) {
         [self.recBtn setEnabled:true];
+        [self.startBtn setEnabled:true];
         [self.tapelen setEnabled:true];
         [self.statis setStringValue:@"Finished. Enjoy :)"];
         [self.header setStringValue:@"AIEdit"];
@@ -104,6 +105,7 @@
     start = [NSDate date];
     [self _timer];
     [self.statis setStringValue:@"Recording side B..."];
+    [self.startBtn setEnabled:false];
     [self _trackEndReached];
 }
 - (void) _meter {

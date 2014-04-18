@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>96D43999-9CB2-4678-8F09-1354019C3265</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AIEdit</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>60B04AF8-3B87-4F0A-95CD-DABE90AAB033</key>
+		<string>https://github.com/vladkorotnev/TapeStuff.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AIEdit/AIEdit.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>60B04AF8-3B87-4F0A-95CD-DABE90AAB033</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/vladkorotnev/TapeStuff.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>60B04AF8-3B87-4F0A-95CD-DABE90AAB033</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>60B04AF8-3B87-4F0A-95CD-DABE90AAB033</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TapeStuff</string>
+		</dict>
+	</array>
+</dict>
+</plist>
