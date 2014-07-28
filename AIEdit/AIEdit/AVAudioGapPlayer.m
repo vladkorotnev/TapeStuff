@@ -24,12 +24,27 @@
 - (NSTimeInterval) duration {
     return self->length;
 }
+- (NSURL*) url {
+    return [NSURL URLWithString:[NSString stringWithFormat:@"gap://%f",self->length]];
+}
+- (NSString*)description {
+    return [NSString stringWithFormat:@"<GAP player of %f>",self->length ];
+}
 - (void)prepareToPlay {}
 - (void) play{
     [self performSelector:@selector(_fin) withObject:nil afterDelay:self->length];
 }
 - (void) _fin {
     [self->del audioPlayerDidFinishPlaying:self successfully:true];
+}
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:[NSNumber numberWithInteger:length] forKey:@"dur"];
+}
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if(self = [super init]) {
+        length = [[aDecoder decodeObjectForKey:@"dur"]intValue];
+    }
+    return self;
 }
 - (void) setMeteringEnabled:(BOOL)meteringEnabled {}
 - (float) averagePowerForChannel:(NSUInteger)channelNumber { return -96.0;}

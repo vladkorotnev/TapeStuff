@@ -8,7 +8,7 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-@interface AVAudioGapPlayer : AVAudioPlayer {
+@interface AVAudioGapPlayer : AVAudioPlayer <NSCoding> {
     NSTimeInterval length;
     id<AVAudioPlayerDelegate> del;
 }

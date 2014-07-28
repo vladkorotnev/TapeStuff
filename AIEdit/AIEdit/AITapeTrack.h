@@ -12,9 +12,15 @@ enum TapeSide {
     SideA,
     SideB
 };
-@interface AITapeTrack : NSObject
+@interface AITapeTrack : NSObject  <NSCoding>
 @property (nonatomic) AVAudioPlayer * player;
 @property (nonatomic) enum TapeSide predictedSide;
 @property (nonatomic) NSString* durStr;
 @property (nonatomic) NSString* fname;
+@property (nonatomic) NSArray* equalizer;
+@property (nonatomic) NSURL* url;
+@property (nonatomic) NSTimeInterval dur;
+@property (nonatomic) float pan;
+@property (nonatomic) float level;
+- (NSArray*) equalizationWithApplyingGlobalValues:(NSArray*)values;
 @end

@@ -19,6 +19,7 @@
 		int keyRepeat = (keyFlags & 0x1);
 		
 		[(AKAppDelegate*)self.delegate mediaKeyEvent: keyCode state: keyState repeat: keyRepeat];
+        return;
 	}
     
 	[super sendEvent: event];

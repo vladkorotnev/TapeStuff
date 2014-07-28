@@ -23,6 +23,24 @@
 		820067CF1901065B0082A6B1 /* AKApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 820067CE1901065B0082A6B1 /* AKApp.m */; };
 		820067D2190106EF0082A6B1 /* AKPioneerTapeRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 820067D1190106EF0082A6B1 /* AKPioneerTapeRecorder.m */; };
 		820067D419010DA40082A6B1 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 820067D319010DA40082A6B1 /* IOKit.framework */; };
+		827BBDDD192515A8005065F8 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 827BBDD0192515A8005065F8 /* NSData+Base64.m */; };
+		827BBDDE192515A8005065F8 /* NSData+BaristaExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 827BBDD2192515A8005065F8 /* NSData+BaristaExtensions.m */; };
+		827BBDDF192515A8005065F8 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 827BBDD4192515A8005065F8 /* GCDAsyncSocket.m */; };
+		827BBDE0192515A8005065F8 /* BARServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 827BBDD6192515A8005065F8 /* BARServer.m */; };
+		827BBDE1192515A8005065F8 /* BARConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 827BBDD8192515A8005065F8 /* BARConnection.m */; };
+		827BBDE2192515A8005065F8 /* BARRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 827BBDDA192515A8005065F8 /* BARRequest.m */; };
+		827BBDE3192515A8005065F8 /* BARResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 827BBDDC192515A8005065F8 /* BARResponse.m */; };
+		827BBDEA1925166A005065F8 /* JLRoutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 827BBDE91925166A005065F8 /* JLRoutes.m */; };
+		827BBDEC19251695005065F8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 827BBDEB19251695005065F8 /* Security.framework */; };
+		827BBDEF1925169C005065F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82006798190106080082A6B1 /* Foundation.framework */; };
+		827BBDF11925169E005065F8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 827BBDF01925169E005065F8 /* CoreGraphics.framework */; };
+		827BBDF2192516A4005065F8 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82006796190106080082A6B1 /* AppKit.framework */; };
+		827BBDF3192516A6005065F8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82006797190106080082A6B1 /* CoreData.framework */; };
+		827BBDF5192516A8005065F8 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 827BBDF4192516A8005065F8 /* CoreFoundation.framework */; };
+		827BBDF7192516AA005065F8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 827BBDF6192516AA005065F8 /* CFNetwork.framework */; };
+		827BBDF9192516AB005065F8 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 827BBDF8192516AB005065F8 /* CoreServices.framework */; };
+		827BBDFB192516BF005065F8 /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 827BBDFA192516BF005065F8 /* libz.1.dylib */; };
+		827BBDFE19251747005065F8 /* BARRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 827BBDFD19251747005065F8 /* BARRouter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,6 +50,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8200678F190106080082A6B1;
 			remoteInfo = PioneerCtl;
+		};
+		82129F4719251BC9006BF4D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82129F4219251BC8006BF4D0 /* RecorderCtl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 82129F1019251BC8006BF4D0;
+			remoteInfo = RecorderCtl;
+		};
+		82129F4919251BC9006BF4D0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 82129F4219251BC8006BF4D0 /* RecorderCtl.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 82129F2B19251BC8006BF4D0;
+			remoteInfo = RecorderCtlTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -64,6 +96,34 @@
 		820067D0190106EF0082A6B1 /* AKPioneerTapeRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPioneerTapeRecorder.h; sourceTree = "<group>"; };
 		820067D1190106EF0082A6B1 /* AKPioneerTapeRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPioneerTapeRecorder.m; sourceTree = "<group>"; };
 		820067D319010DA40082A6B1 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		82129F4219251BC8006BF4D0 /* RecorderCtl.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RecorderCtl.xcodeproj; path = RecorderCtl/RecorderCtl.xcodeproj; sourceTree = "<group>"; };
+		827BBDCF192515A8005065F8 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		827BBDD0192515A8005065F8 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		827BBDD1192515A8005065F8 /* NSData+BaristaExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+BaristaExtensions.h"; sourceTree = "<group>"; };
+		827BBDD2192515A8005065F8 /* NSData+BaristaExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+BaristaExtensions.m"; sourceTree = "<group>"; };
+		827BBDD3192515A8005065F8 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		827BBDD4192515A8005065F8 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		827BBDD5192515A8005065F8 /* BARServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARServer.h; sourceTree = "<group>"; };
+		827BBDD6192515A8005065F8 /* BARServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARServer.m; sourceTree = "<group>"; };
+		827BBDD7192515A8005065F8 /* BARConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARConnection.h; sourceTree = "<group>"; };
+		827BBDD8192515A8005065F8 /* BARConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARConnection.m; sourceTree = "<group>"; };
+		827BBDD9192515A8005065F8 /* BARRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARRequest.h; sourceTree = "<group>"; };
+		827BBDDA192515A8005065F8 /* BARRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARRequest.m; sourceTree = "<group>"; };
+		827BBDDB192515A8005065F8 /* BARResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARResponse.h; sourceTree = "<group>"; };
+		827BBDDC192515A8005065F8 /* BARResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARResponse.m; sourceTree = "<group>"; };
+		827BBDE619251613005065F8 /* Barista.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Barista.h; sourceTree = "<group>"; };
+		827BBDE719251613005065F8 /* BaristaTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaristaTypes.h; sourceTree = "<group>"; };
+		827BBDE81925166A005065F8 /* JLRoutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLRoutes.h; sourceTree = "<group>"; };
+		827BBDE91925166A005065F8 /* JLRoutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLRoutes.m; sourceTree = "<group>"; };
+		827BBDEB19251695005065F8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		827BBDED19251698005065F8 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		827BBDF01925169E005065F8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		827BBDF4192516A8005065F8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		827BBDF6192516AA005065F8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		827BBDF8192516AB005065F8 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		827BBDFA192516BF005065F8 /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = usr/lib/libz.1.dylib; sourceTree = SDKROOT; };
+		827BBDFC19251747005065F8 /* BARRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BARRouter.h; sourceTree = "<group>"; };
+		827BBDFD19251747005065F8 /* BARRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BARRouter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +132,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				820067D419010DA40082A6B1 /* IOKit.framework in Frameworks */,
+				827BBDF9192516AB005065F8 /* CoreServices.framework in Frameworks */,
+				827BBDF5192516A8005065F8 /* CoreFoundation.framework in Frameworks */,
+				827BBDFB192516BF005065F8 /* libz.1.dylib in Frameworks */,
+				827BBDF7192516AA005065F8 /* CFNetwork.framework in Frameworks */,
+				827BBDF3192516A6005065F8 /* CoreData.framework in Frameworks */,
+				827BBDEC19251695005065F8 /* Security.framework in Frameworks */,
+				827BBDF2192516A4005065F8 /* AppKit.framework in Frameworks */,
+				827BBDF11925169E005065F8 /* CoreGraphics.framework in Frameworks */,
+				827BBDEF1925169C005065F8 /* Foundation.framework in Frameworks */,
 				82006794190106080082A6B1 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,6 +160,7 @@
 		82006787190106080082A6B1 = {
 			isa = PBXGroup;
 			children = (
+				82129F4219251BC8006BF4D0 /* RecorderCtl.xcodeproj */,
 				82006799190106080082A6B1 /* PioneerCtl */,
 				820067B7190106080082A6B1 /* PioneerCtlTests */,
 				82006792190106080082A6B1 /* Frameworks */,
@@ -110,6 +180,13 @@
 		82006792190106080082A6B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				827BBDFA192516BF005065F8 /* libz.1.dylib */,
+				827BBDF8192516AB005065F8 /* CoreServices.framework */,
+				827BBDF6192516AA005065F8 /* CFNetwork.framework */,
+				827BBDF4192516A8005065F8 /* CoreFoundation.framework */,
+				827BBDF01925169E005065F8 /* CoreGraphics.framework */,
+				827BBDED19251698005065F8 /* SenTestingKit.framework */,
+				827BBDEB19251695005065F8 /* Security.framework */,
 				820067D319010DA40082A6B1 /* IOKit.framework */,
 				82006793190106080082A6B1 /* Cocoa.framework */,
 				820067B2190106080082A6B1 /* XCTest.framework */,
@@ -131,10 +208,8 @@
 		82006799190106080082A6B1 /* PioneerCtl */ = {
 			isa = PBXGroup;
 			children = (
-				820067C7190106140082A6B1 /* ORSSerialPort.h */,
-				820067C8190106140082A6B1 /* ORSSerialPort.m */,
-				820067C9190106140082A6B1 /* ORSSerialPortManager.h */,
-				820067CA190106140082A6B1 /* ORSSerialPortManager.m */,
+				827BBDE4192515AD005065F8 /* Barista */,
+				827BBDE5192515B6005065F8 /* Serial */,
 				820067A5190106080082A6B1 /* AKAppDelegate.h */,
 				820067A6190106080082A6B1 /* AKAppDelegate.m */,
 				820067D0190106EF0082A6B1 /* AKPioneerTapeRecorder.h */,
@@ -176,6 +251,53 @@
 				820067BA190106080082A6B1 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		82129F4319251BC8006BF4D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				82129F4819251BC9006BF4D0 /* RecorderCtl.app */,
+				82129F4A19251BC9006BF4D0 /* RecorderCtlTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		827BBDE4192515AD005065F8 /* Barista */ = {
+			isa = PBXGroup;
+			children = (
+				827BBDFC19251747005065F8 /* BARRouter.h */,
+				827BBDFD19251747005065F8 /* BARRouter.m */,
+				827BBDE81925166A005065F8 /* JLRoutes.h */,
+				827BBDE91925166A005065F8 /* JLRoutes.m */,
+				827BBDE619251613005065F8 /* Barista.h */,
+				827BBDE719251613005065F8 /* BaristaTypes.h */,
+				827BBDCF192515A8005065F8 /* NSData+Base64.h */,
+				827BBDD0192515A8005065F8 /* NSData+Base64.m */,
+				827BBDD1192515A8005065F8 /* NSData+BaristaExtensions.h */,
+				827BBDD2192515A8005065F8 /* NSData+BaristaExtensions.m */,
+				827BBDD3192515A8005065F8 /* GCDAsyncSocket.h */,
+				827BBDD4192515A8005065F8 /* GCDAsyncSocket.m */,
+				827BBDD5192515A8005065F8 /* BARServer.h */,
+				827BBDD6192515A8005065F8 /* BARServer.m */,
+				827BBDD7192515A8005065F8 /* BARConnection.h */,
+				827BBDD8192515A8005065F8 /* BARConnection.m */,
+				827BBDD9192515A8005065F8 /* BARRequest.h */,
+				827BBDDA192515A8005065F8 /* BARRequest.m */,
+				827BBDDB192515A8005065F8 /* BARResponse.h */,
+				827BBDDC192515A8005065F8 /* BARResponse.m */,
+			);
+			name = Barista;
+			sourceTree = "<group>";
+		};
+		827BBDE5192515B6005065F8 /* Serial */ = {
+			isa = PBXGroup;
+			children = (
+				820067C7190106140082A6B1 /* ORSSerialPort.h */,
+				820067C8190106140082A6B1 /* ORSSerialPort.m */,
+				820067C9190106140082A6B1 /* ORSSerialPortManager.h */,
+				820067CA190106140082A6B1 /* ORSSerialPortManager.m */,
+			);
+			name = Serial;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +364,12 @@
 			mainGroup = 82006787190106080082A6B1;
 			productRefGroup = 82006791190106080082A6B1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 82129F4319251BC8006BF4D0 /* Products */;
+					ProjectRef = 82129F4219251BC8006BF4D0 /* RecorderCtl.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8200678F190106080082A6B1 /* PioneerCtl */,
@@ -249,6 +377,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		82129F4819251BC9006BF4D0 /* RecorderCtl.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = RecorderCtl.app;
+			remoteRef = 82129F4719251BC9006BF4D0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		82129F4A19251BC9006BF4D0 /* RecorderCtlTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RecorderCtlTests.xctest;
+			remoteRef = 82129F4919251BC9006BF4D0 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8200678E190106080082A6B1 /* Resources */ = {
@@ -278,9 +423,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				820067D2190106EF0082A6B1 /* AKPioneerTapeRecorder.m in Sources */,
+				827BBDE1192515A8005065F8 /* BARConnection.m in Sources */,
+				827BBDDE192515A8005065F8 /* NSData+BaristaExtensions.m in Sources */,
+				827BBDEA1925166A005065F8 /* JLRoutes.m in Sources */,
+				827BBDE3192515A8005065F8 /* BARResponse.m in Sources */,
 				820067CF1901065B0082A6B1 /* AKApp.m in Sources */,
 				820067CB190106140082A6B1 /* ORSSerialPort.m in Sources */,
+				827BBDDD192515A8005065F8 /* NSData+Base64.m in Sources */,
 				820067CC190106140082A6B1 /* ORSSerialPortManager.m in Sources */,
+				827BBDE0192515A8005065F8 /* BARServer.m in Sources */,
+				827BBDDF192515A8005065F8 /* GCDAsyncSocket.m in Sources */,
+				827BBDE2192515A8005065F8 /* BARRequest.m in Sources */,
+				827BBDFE19251747005065F8 /* BARRouter.m in Sources */,
 				820067A7190106080082A6B1 /* AKAppDelegate.m in Sources */,
 				820067A0190106080082A6B1 /* main.m in Sources */,
 			);
@@ -413,6 +567,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PioneerCtl/PioneerCtl-Prefix.pch";
 				INFOPLIST_FILE = "PioneerCtl/PioneerCtl-Info.plist";
@@ -426,6 +584,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PioneerCtl/PioneerCtl-Prefix.pch";
 				INFOPLIST_FILE = "PioneerCtl/PioneerCtl-Info.plist";
@@ -493,6 +655,7 @@
 				820067C3190106080082A6B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		820067C4190106080082A6B1 /* Build configuration list for PBXNativeTarget "PioneerCtlTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +664,7 @@
 				820067C6190106080082A6B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

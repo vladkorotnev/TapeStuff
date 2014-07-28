@@ -1,0 +1,21 @@
+-x
+c++
+-arch
+x86_64
+-fpascal-strings
+-O0
+-isysroot
+/Applications/Xcode6-Beta2.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk
+-fasm-blocks
+-mmacosx-version-min=10.10
+-fvisibility-inlines-hidden
+-ccc-arcmt-check
+-iquote
+-iquote
+-I/Users/tigra/Downloads/PlayerKit-master/DerivedData/PlayerKit/Build/Products/Debug/include
+-I/Applications/Xcode6-Beta2.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include
+-F/Users/tigra/Downloads/PlayerKit-master/DerivedData/PlayerKit/Build/Products/Debug
+x86_64-apple-darwin13.2.0
+"4.2.1 Compatible Apple LLVM 6.0 (clang-600.0.34.4)"
+SDK_PRODUCT_BUILD_VERSION=14A261i
+14A261i

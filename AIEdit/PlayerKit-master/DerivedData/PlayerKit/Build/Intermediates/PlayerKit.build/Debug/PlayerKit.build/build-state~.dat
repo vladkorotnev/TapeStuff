@@ -1,0 +1,183 @@
+TPlayerKit
+v7
+r1
+cCheck dependencies
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAAudioBufferList.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAComponent.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAComponentDescription.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAPThread.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAStreamBasicDescription.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/CoreAudioErrors.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKAudioEffect.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKAudioPlayer.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKAudioPlayerEngine.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKCoreAudioDecoder.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKDecoder.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKDelayEffect.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKGraphicEQEffect.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKMatrixReverbEffect.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKPitchEffect.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKScheduledDataSlice.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PKTaskQueue.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/PlayerKitDefines.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/RBAtomic.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/RBException.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/RBLockableObject.cpp
+r0
+
+CBuild AST from /Users/tigra/Downloads/PlayerKit-master/RBObject.cpp
+r0
+
+CCheck dependencies
+r0
+lSLF07#21%IDEActivityLogSection1@2#32"com.apple.dt.IDE.BuildLogSection18"Check dependencies18"Check dependenciesb22dcf0b9672b941^9775e70b9672b941^---0#1#1#--18"Check dependencies36"F94B4A7D-EF58-48BE-AFB4-DB00A9FC5DCD-
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/CAAudioBufferList.o /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAAudioBufferList.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/CAComponent.o /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAComponent.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/CAComponentDescription.o /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAComponentDescription.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/CAPThread.o /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAPThread.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/CAStreamBasicDescription.o /Users/tigra/Downloads/PlayerKit-master/CAPublicUtility/CAStreamBasicDescription.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/CoreAudioErrors.o /Users/tigra/Downloads/PlayerKit-master/CoreAudioErrors.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKAudioEffect.o /Users/tigra/Downloads/PlayerKit-master/PKAudioEffect.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKAudioPlayer.o /Users/tigra/Downloads/PlayerKit-master/PKAudioPlayer.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKAudioPlayerEngine.o /Users/tigra/Downloads/PlayerKit-master/PKAudioPlayerEngine.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKCoreAudioDecoder.o /Users/tigra/Downloads/PlayerKit-master/PKCoreAudioDecoder.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKDecoder.o /Users/tigra/Downloads/PlayerKit-master/PKDecoder.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKDelayEffect.o /Users/tigra/Downloads/PlayerKit-master/PKDelayEffect.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKGraphicEQEffect.o /Users/tigra/Downloads/PlayerKit-master/PKGraphicEQEffect.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKMatrixReverbEffect.o /Users/tigra/Downloads/PlayerKit-master/PKMatrixReverbEffect.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKPitchEffect.o /Users/tigra/Downloads/PlayerKit-master/PKPitchEffect.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKScheduledDataSlice.o /Users/tigra/Downloads/PlayerKit-master/PKScheduledDataSlice.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PKTaskQueue.o /Users/tigra/Downloads/PlayerKit-master/PKTaskQueue.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/PlayerKitDefines.o /Users/tigra/Downloads/PlayerKit-master/PlayerKitDefines.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/RBAtomic.o /Users/tigra/Downloads/PlayerKit-master/RBAtomic.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/RBException.o /Users/tigra/Downloads/PlayerKit-master/RBException.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/RBLockableObject.o /Users/tigra/Downloads/PlayerKit-master/RBLockableObject.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCompileC DerivedData/PlayerKit/Build/Intermediates/PlayerKit.build/Debug/PlayerKit.build/Objects-normal/x86_64/RBObject.o /Users/tigra/Downloads/PlayerKit-master/RBObject.cpp normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CCopyStringsFile /Users/tigra/Downloads/PlayerKit-master/DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+r0
+
+CCpHeader PKAudioEffect.h DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Headers/PKAudioEffect.h
+r0
+
+CCpHeader PKAudioPlayer.h DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Headers/PKAudioPlayer.h
+r0
+
+CCpHeader PKDelayEffect.h DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Headers/PKDelayEffect.h
+r0
+
+CCpHeader PKGraphicEQEffect.h DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Headers/PKGraphicEQEffect.h
+r0
+
+CCpHeader PKMatrixReverbEffect.h DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Headers/PKMatrixReverbEffect.h
+r0
+
+CCpHeader PKPitchEffect.h DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Headers/PKPitchEffect.h
+r0
+
+CCpHeader PlayerKit.h DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Headers/PlayerKit.h
+r0
+
+CCpHeader PlayerKitDefines.h DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Headers/PlayerKitDefines.h
+r0
+
+CLd /Users/tigra/Downloads/PlayerKit-master/DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/PlayerKit normal x86_64
+r0
+
+CProcessInfoPlistFile /Users/tigra/Downloads/PlayerKit-master/DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework/Versions/A/Resources/Info.plist /Users/tigra/Downloads/PlayerKit-master/Info.plist
+r0
+
+CProcessPCH++ /Users/tigra/Downloads/PlayerKit-master/DerivedData/PlayerKit/Build/Intermediates/PrecompiledHeaders/PlayerKit_Prefix-ggmkhdowuamevtcptgsuafloixfa/PlayerKit_Prefix.pch.pch PlayerKit_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.compiler
+r0
+
+CProcessPCH++ /Users/tigra/Downloads/PlayerKit-master/DerivedData/PlayerKit/Index/PrecompiledHeaders/PlayerKit_Prefix-ehewiwcbbtnejnfmywvoiaxaebxk_ast/PlayerKit_Prefix.pch.pch PlayerKit_Prefix.pch normal x86_64 c++ com.apple.compilers.llvm.clang.1_0.astbuilder
+r0
+
+CTouch /Users/tigra/Downloads/PlayerKit-master/DerivedData/PlayerKit/Build/Products/Debug/PlayerKit.framework
+r0
+

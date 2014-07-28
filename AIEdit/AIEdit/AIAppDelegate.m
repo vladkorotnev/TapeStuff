@@ -15,17 +15,34 @@
     // Insert code here to initialize your application
     files = [NSMutableArray new];
     [self.filetable setDataSource:self]; [self.filetable setDelegate:self];
-    for (ORSSerialPort*p in [[ORSSerialPortManager sharedSerialPortManager]availablePorts]) {
-        
+    for (ORSSerialPort*p in [[ORSSerialPortManager sharedSerialPortManager]availablePorts])
         [self.portList addItemWithTitle:p.name];
-        
-    }
+    
     
     if ([[NSUserDefaults standardUserDefaults]objectForKey:@"Transport"]) {
         [self.portList selectItemWithTitle:[[NSUserDefaults standardUserDefaults]objectForKey:@"Transport"]];
         [self transportComChg:self];
     }
- 
+    
+    AIAudioOutputPlayer *otp = [AIAudioOutputPlayer sharedAudioFilePlayer];
+    currentIdx=-1;
+    
+    [self.masterProcProg startAnimation:self];
+    
+}
+-(void)panel:(NSPanel*)p {
+    [[NSApplication sharedApplication] beginSheet:p
+                                   modalForWindow:self.window
+                                    modalDelegate:self
+                                   didEndSelector:@selector(sheetDidEnd:returnCode:contextInfo:)
+                                      contextInfo:nil];
+}
+- (void) noPanel:(NSPanel*)p {
+    [[NSApplication sharedApplication] stopModal];
+    [p orderOut:self];
+    [ NSApp endSheet:p returnCode:0 ] ;
+}
+- (void) sheetDidEnd:(NSWindow *) sheet returnCode:(int)returnCode contextInfo:(void *) contextInfo {
     
 }
 -(void) notifyWithTitle:(NSString*)title andText:(NSString*)wat {
@@ -48,27 +65,87 @@
     //Scheldule our NSUserNotification
     [center scheduleNotification:notification];
 }
+
 - (IBAction)recStart:(id)sender {
-    currentIdx=-1;
-    currentSide=SideA;
+    if (isPreviewing) {
+        [self previewStop:nil];
+    }
+    [self.prevPlay setEnabled:false];
     [self.recBtn setEnabled:false];
     [self.statis setStringValue:@"Recording side A..."];
     [self.tapelen setEnabled:false];
+    isRecording = true;
+    if (sender && self.recauto.state == 1 && deck) {
+        [deck record];
+        [deck play];
+        [self.statis setStringValue:@"5 second lead-in skip..."];
+        [self performSelector:@selector(recStart:) withObject:Nil afterDelay:5.0];
+        return;
+    }
+    currentIdx=-1;
+    currentSide=SideA;
+    
     self->start = [NSDate date];
     [self _timer];
     [self _trackEndReached];
 }
+- (IBAction)start2:(id)sender {
+    [self.statis setStringValue:@"Recording side B..."];
+    [self.startBtn setEnabled:false];
+    if (sender && self.recauto.state == 1 && deck) {
+        [deck record];
+        [deck play];
+        [self.statis setStringValue:@"5 second lead-in skip..."];
+        [self performSelector:@selector(start2:) withObject:Nil afterDelay:5.0];
+        return;
+    }
+    currentSide=SideB;
+    currentIdx--;
+    start = [NSDate date];
+    [self _timer];
+    [self _trackEndReached];
+}
+- (void) _doneAction {
+    if (deck) {
+        switch (self.sideDoneAction.selectedTag) {
+            case 1:
+                [deck stop];
+                NSLog(@"done action fw");
+                [deck forward];
+                break;
+                
+            case 2:
+                //[deck stop];
+                [deck pause];
+                NSLog(@"done action pause");
+                break;
+            case 3:
+                [deck stop];
+                NSLog(@"done action rew");
+                [deck rewind];
+                break;
+                
+            default:
+                break;
+        }
+    } else NSLog(@"No deck!");
+}
+NSDate *trkstart;
 - (void) _trackEndReached {
     currentIdx++;
     if(currentIdx >= files.count) {
         [self.recBtn setEnabled:true];
-        [self.startBtn setEnabled:true];
+        [self.startBtn setEnabled:false];
         [self.tapelen setEnabled:true];
         [self.statis setStringValue:@"Finished. Enjoy :)"];
-        [self.header setStringValue:@"AIEdit"];
+        [self.header setStringValue:@"AIEdit 2"];
+         [self.prevPlay setEnabled:true];
         [self notifyWithTitle:@"Copying finished!" andText:@"Finished copying to tape."];
         cur = nil;
+        isRecording = false;
         start = nil;
+        currentIdx = -1;
+        [self _doneAction];
         [self.filetable reloadData];
         return;
     }
@@ -76,46 +153,55 @@
     if (t.predictedSide != currentSide) {
         [self.statis setStringValue:@"Waiting for Side B start..."];
         start = nil;
-        [self.header setStringValue:@"AIEdit"];
+        [self.header setStringValue:@"AIEdit 2"];
         [self notifyWithTitle:@"Side A finished!" andText:@"Please flip the tape and record the side B"];
+        [self _doneAction];
         [self.startBtn setEnabled:true];
         return;
     }
-    cur = t.player;
-    [cur prepareToPlay];
-    [cur play];
-    [cur setDelegate:self];
-    [cur setMeteringEnabled:true];
+    if (t.player) {
+        if ([t.player isKindOfClass:[AVAudioGapPlayer class]]) {
+            [t.player setDelegate:self];
+            NSLog(@"GAP %@",t.player    );
+            [t.player play];
+             [self.filetable reloadData];
+            return;
+        }
+    }
+    cur = t.url;
+    NSLog(@"Playing %@", t.url.absoluteString);
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[t equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer]playURL:cur];
     [self.filetable reloadData];
-    [self _meter];
-    
+   
+    [self performSelector:@selector(_trackEndReached) withObject:nil afterDelay:t.dur];
+}
+- (IBAction)lvlEqGlobal:(id)sender {
+    NSMutableArray* src = [[self eqBandsGlobal]mutableCopy];
+    float max = -20.0f;
+    for (NSNumber*val in src) {
+        if (max < [val floatValue]) {
+            max = [val floatValue];
+        }
+    }
+    for (int i =0; i < src.count; i++) {
+        src[i] = [NSNumber numberWithFloat:([src[i] floatValue] - max)];
+    }
+    [self writeEqBandsGlobal:src];
 }
 - (void) _timer {
     if (start) {
         [self.header setStringValue:[self timeFormatted:[[NSDate date] timeIntervalSinceDate:start]]];
-        [self performSelector:@selector(_timer) withObject:nil afterDelay:1.0];
+       [self performSelector:@selector(_timer) withObject:nil afterDelay:1.0];
     }
+
+    
 }
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
     [self _trackEndReached];
 }
-- (IBAction)start2:(id)sender {
-    currentSide=SideB;
-    currentIdx--;
-    start = [NSDate date];
-    [self _timer];
-    [self.statis setStringValue:@"Recording side B..."];
-    [self.startBtn setEnabled:false];
-    [self _trackEndReached];
-}
-- (void) _meter {
-    if (cur) {
-        [cur updateMeters];
-        [self.bar1 setDoubleValue:([cur averagePowerForChannel:0]*100)/4];
-        [self.bar2 setDoubleValue:([cur averagePowerForChannel:1]*100)/4];
-         [self performSelector:@selector(_meter) withObject:nil afterDelay:0.1];
-    }
-}
+
+
 - (NSString *)timeFormatted:(int)totalSeconds
 {
     
@@ -125,7 +211,7 @@
     
     return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
 }
-- (IBAction)gap:(NSButton *)sender {
+- (IBAction)gap:(NSControl *)sender {
     AVAudioGapPlayer*g = [[AVAudioGapPlayer alloc]initWithDelegate:self length:sender.tag];
     [self _addFromAudioPlayer:g file:nil];
 }
@@ -135,8 +221,7 @@
 }
 - (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender
 {
-    // server is running, better cleanup...
-    if (cur && [cur isPlaying]) {
+    if (cur && isRecording) {
         NSAlert* msgBox = [[NSAlert alloc] init] ;
         [msgBox setMessageText: @"The tape is recording!"];
         [msgBox setInformativeText:@"The tape is recording. Are you sure you want to quit? This will stop playback."];
@@ -148,25 +233,92 @@
     }
     return NSTerminateNow;
 }
+- (IBAction)writeProject:(id)sender {
+    if(files.count == 0) return;
+    NSSavePanel *save = [[NSSavePanel alloc]init];
+    [save setAllowedFileTypes:@[@"tape"]];
+    [save setAllowsOtherFileTypes:false];
+    if ([save runModal] == NSOKButton) {
+        NSMutableDictionary * proj = [NSMutableDictionary new];
+        [proj setValue:[NSNumber numberWithInt:self.tapelen.intValue] forKey:@"length"];
+        NSData*dta = [NSKeyedArchiver archivedDataWithRootObject:files];
+        [proj setValue:dta forKey:@"data"];
+        [proj setValue:[self eqBandsGlobal] forKey:@"eq"];
+        [proj writeToURL:[save URL] atomically:false];
+        [[NSWorkspace sharedWorkspace] setIcon:[NSImage imageNamed:@"tapedoc"] forFile:[save URL].path options:0];
+    }
+}
+- (IBAction)readProject:(id)sender {
+    if (isRecording) return;
+        NSOpenPanel *openPanel = [[NSOpenPanel alloc] init];
+    [openPanel setCanChooseFiles:true];
+    [openPanel setCanChooseDirectories:false];
+    [openPanel setAllowsMultipleSelection:false];
+    [openPanel setAllowedFileTypes:[NSArray arrayWithObjects:@"tape", nil]];
+    if ([openPanel runModal] == NSOKButton)
+    {
+        if (files.count > 0) {
+            NSAlert* msgBox = [[NSAlert alloc] init] ;
+            [msgBox setMessageText: @"Open project?"];
+            [msgBox setInformativeText:@"This will clear the current project!"];
+            [msgBox addButtonWithTitle: @"No"];
+            [msgBox addButtonWithTitle:@"Yes"];
+            if ([msgBox runModal] == NSAlertSecondButtonReturn) {
+                [files removeAllObjects];
+                [self.filetable reloadData];
+                precalcMinutes = 0;
+                [self _fillMeters];
+                [self.tapelen setStringValue:@"90"];
+            } else return;
+        }
+        NSDictionary* master = [NSDictionary dictionaryWithContentsOfURL:[openPanel URL]];
+        [self.tapelen setStringValue:[NSString stringWithFormat:@"%i", [[master objectForKey:@"length"]intValue]]];
+        NSArray* list = [NSKeyedUnarchiver unarchiveObjectWithData:[master objectForKey:@"data"]];
+        files = [list mutableCopy];
+    
+       if(master[@"eq"]) [self writeEqBandsGlobal:master[@"eq"]];
+        [self.filetable reloadData];
+        [self _fillMeters];
+    }
+}
+- (IBAction)newProject:(id)sender {
+    if (isRecording) return;
+    NSAlert* msgBox = [[NSAlert alloc] init] ;
+    [msgBox setMessageText: @"New project?"];
+    [msgBox setInformativeText:@"This will clear the current project!"];
+    [msgBox addButtonWithTitle: @"No"];
+    [msgBox addButtonWithTitle:@"Yes"];
+    if ([msgBox runModal] == NSAlertSecondButtonReturn) {
+        [files removeAllObjects];
+        [self.filetable reloadData];
+        precalcMinutes = 0;
+        [self _fillMeters];
+        [self.tapelen setStringValue:@"90"];
+        [self zeroEqGlobal:nil];
+       // [self zeroEqSel:nil];
+    }
+}
 - (void) _addFromAudioPlayer: (AVAudioPlayer*)p file:(NSURL*)file{
     [p prepareToPlay];
     AITapeTrack*t = [AITapeTrack new];
     if (precalcMinutes + (p.duration/60) > self.tapelen.floatValue) {
         NSAlert* msgBox = [[NSAlert alloc] init] ;
-        [msgBox setMessageText: [NSString stringWithFormat:NSLocalizedString(@"Cannot add %@ to tracklist", @"error message"),[file pathComponents].lastObject ]];
+        [msgBox setMessageText: [NSString stringWithFormat:NSLocalizedString(@"Cannot add %@ to tracklist", @"error message"),([p isKindOfClass:[AVAudioGapPlayer class]] ? @"Gap" : [file pathComponents].lastObject) ]];
         [msgBox setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"It's length is %@, but you only have %@ left.", @"error description"), [self timeFormatted:p.duration], [self timeFormatted:(self.tapelen.integerValue*60 - (precalcMinutes*60))]]];
         [msgBox addButtonWithTitle: @"OK"];
         [msgBox runModal];
     } else {
-        [t setPlayer:p];
+        [t setUrl:file];
         if (precalcMinutes + (p.duration/60) > self.tapelen.floatValue/2)
             [t setPredictedSide:SideB];
         else
             [t setPredictedSide:SideA];
         [t setFname: ([p isKindOfClass:[AVAudioGapPlayer class]] ? @"Gap" : [file pathComponents].lastObject)];
         [t setDurStr: [self timeFormatted:p.duration]];
+        [t setDur:p.duration];
+        if([p isKindOfClass:[AVAudioGapPlayer class]])[t setPlayer:p];
         [files addObject:t];
-        precalcMinutes += (p.duration/60);
+        precalcMinutes += (t.dur/60);
         [self.filetable reloadData];
         [self _fillMeters];
     }
@@ -186,6 +338,10 @@
             for (NSURL*file in openPanel.URLs) {
                 AVAudioPlayer* p = [[AVAudioPlayer alloc]initWithContentsOfURL:file error:nil];
                 [self _addFromAudioPlayer:p file:file];
+                if (self.gapadd.state == 1) {
+                    AVAudioGapPlayer * gap = [[AVAudioGapPlayer alloc]initWithDelegate:self length:3.0];
+                    [self _addFromAudioPlayer:gap file:nil];
+                }
             }
         }
         
@@ -194,9 +350,11 @@
 - (void) _fillMeters {
     float Aside = 0;
     float Bside = 0;
+    precalcMinutes = 0;
     for (AITapeTrack*t in files) {
-        if(t.predictedSide == SideA) Aside += t.player.duration/60;
-         if(t.predictedSide == SideB) Bside += t.player.duration/60;
+        if(t.predictedSide == SideA) Aside += t.dur/60;
+         if(t.predictedSide == SideB) Bside += t.dur/60;
+        precalcMinutes += t.dur/60;
     }
     [self.fma setDoubleValue:MIN(1, Aside / (self.tapelen.floatValue/2))]; [self.fmb setDoubleValue:MIN(1, Bside / (self.tapelen.floatValue/2))];
     [self.remainA setStringValue: [NSString stringWithFormat:@"-%@", [self timeFormatted: ((self.tapelen.floatValue/2) - Aside) * 60]]];
@@ -204,8 +362,9 @@
     
     
 }
+
 - (IBAction)rem:(id)sender {
-    if(self.filetable.selectedRow > files.count-1 || self.filetable.selectedRow < 0 || cur == ((AITapeTrack*)files[self.filetable.selectedRow]).player) return;
+    if(self.filetable.selectedRow >= files.count || self.filetable.selectedRow < 0 || currentIdx == self.filetable.selectedRow) return;
     precalcMinutes -= ((AITapeTrack*)files[self.filetable.selectedRow]).player.duration/60;
     [files removeObjectAtIndex:[self.filetable selectedRow]];
     [self.filetable reloadData];
@@ -228,7 +387,10 @@
     } else  if ([[[tableColumn headerCell]title]isEqualToString:@"Side"] ) {
         return (t.predictedSide == SideA ? @"Side A" : @"Side B");
     } else {
-        return (cur == t.player ? @"→" : @"");
+        if (isPreviewing && previewCur == row) {
+            return @"Pre";
+        }
+        return (currentIdx == row ? @"→" : @"");
     }
     return @"";
 }
@@ -259,11 +421,19 @@
         case 6:
             [deck pause];
             break;
+        case 7:
+            [deck record];
+            sleep(1);
+            [deck play];
             
         default:
             break;
     }
 
+}
+- (IBAction)eqchange:(id)sender {
+#warning TOFIX when adding per-track eq
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[self eqBandsGlobal]];
 }
 
 - (IBAction)transportComChg:(id)sender {
@@ -272,9 +442,211 @@
             if ([pt.name isEqualToString:[self.portList.selectedItem title]]) {
                 deck = nil;
                 deck = [[AKPioneerTapeRecorder alloc]initWithSerialPort:pt];
-                [[NSUserDefaults standardUserDefaults]setObject:[self.portList.selectedItem title] forKey:@"Transport"];
+                
             }
         }
     }
+    [[NSUserDefaults standardUserDefaults]setObject:[self.portList.selectedItem title] forKey:@"Transport"];
+}
+
+/*
+- (IBAction)zeroEqSel:(id)sender {
+    for (NSSlider*slide in [self.selbox.subviews[0] subviews]) {
+        if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
+            NSLog(@"%@",slide);
+            [slide setFloatValue:0.0f];
+        }
+    }
+}
+ - (NSArray*) eqBandsSel {
+ NSMutableArray* bands = [NSMutableArray arrayWithCapacity:10];
+ for (NSSlider*slide in [self.selbox.subviews[0] subviews]) {
+ if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
+ bands[slide.tag] = [NSNumber numberWithFloat:slide.floatValue];
+ 
+ }
+ }
+ return bands;
+ }
+ - (void) writeEqBandsSel: (NSArray*)vals {
+ for (NSSlider*slide in [self.selbox.subviews[0] subviews]) {
+ if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
+ [slide setFloatValue:[vals[slide.tag] floatValue]];
+ }
+ }
+ }
+ AITapeTrack *curedit;
+ - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+ NSLog(@"selc ");
+ if(curedit) {
+ [curedit setEqualizer:[self eqBandsSel]];
+ }
+ if (self.filetable.selectedRow >= files.count || self.filetable.selectedRow < 0)
+ return;
+ 
+ AITapeTrack* tt = files[self.filetable.selectedRow];
+ [self writeEqBandsSel:tt.equalizer];
+ curedit = tt;
+ }
+ */
+- (IBAction)zeroEqGlobal:(id)sender {
+    for (NSSlider*slide in [self.globalBox.subviews[0] subviews]) {
+        if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
+            NSLog(@"%@",slide);
+            [slide setFloatValue:0.0f];
+        }
+    }
+#warning TOFIX when adding per-track eq
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[self eqBandsGlobal]];
+}
+
+- (NSArray*) eqBandsGlobal {
+    NSMutableArray* bands = [NSMutableArray arrayWithCapacity:10];
+    for (NSSlider*slide in [self.globalBox.subviews[0] subviews]) {
+        if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
+            bands[slide.tag] = [NSNumber numberWithFloat:slide.floatValue];
+        }
+    }
+    return bands;
+}
+
+
+- (void) writeEqBandsGlobal: (NSArray*)vals {
+    for (NSSlider*slide in [self.globalBox.subviews[0] subviews]) {
+        if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
+            [slide setFloatValue:[vals[slide.tag] floatValue]];
+        }
+    }
+#warning TOFIX when adding per-track eq
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[self eqBandsGlobal]];
+}
+
+NSInteger previewCur;
+bool isPreviewing, isRecording;
+- (IBAction)previewPrev:(id)sender {
+    if(!isPreviewing || isRecording) return;
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] stop];
+    previewCur--;
+    while( (! ((AITapeTrack*)files[previewCur]).url) && previewCur >=0) {
+        previewCur--;
+        if (previewCur <0) {
+            [self previewStop:sender];
+            return;
+        }
+    }
+    if (previewCur <0) {
+        [self previewStop:sender];
+        return;
+    }
+    AITapeTrack *tt =  (AITapeTrack*)files[previewCur];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[tt equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] playURL: tt.url];
+    [self.filetable reloadData];
+}
+
+- (IBAction)previewNext:(id)sender {
+     if(!isPreviewing || isRecording) return;
+     [[AIAudioOutputPlayer sharedAudioFilePlayer] stop];
+    previewCur++;
+    while((!((AITapeTrack*)files[previewCur]).url) && !(previewCur >= files.count)) {
+        previewCur++;
+        if (previewCur >= files.count) {
+            [self previewStop:sender];
+            return;
+        }
+    }
+    if (previewCur >= files.count) {
+        [self previewStop:sender];
+        return;
+    }
+    AITapeTrack *tt =  (AITapeTrack*)files[previewCur];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[tt equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] playURL: tt.url];
+    [self.filetable reloadData];
+}
+- (IBAction)previewStop:(id)sender {
+    if(!isPreviewing || isRecording) return;
+    isPreviewing = false;
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] stop];
+    previewCur = 0;
+    [self.filetable reloadData];
+}
+- (IBAction)previewPlay:(id)sender {
+    if(files.count == 0) return;
+    if (isPreviewing || isRecording) return;
+    isPreviewing = true;
+    while((!((AITapeTrack*)files[previewCur]).url) && !(previewCur >= files.count)) {
+        previewCur++;
+        if (previewCur >= files.count) {
+            [self previewStop:sender];
+            return;
+        }
+    }
+    AITapeTrack *tt =  (AITapeTrack*)files[previewCur];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[tt equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] playURL: tt.url];
+    [self.filetable reloadData];
+}
+- (IBAction)unpackTape:(id)sender {
+    if (isRecording) return;
+    [self panel:self.masterProcPanel];
+    NSOpenPanel *openPanel = [[NSOpenPanel alloc] init];
+    [openPanel setCanChooseFiles:true];
+    [openPanel setCanChooseDirectories:false];
+    [openPanel setAllowsMultipleSelection:false];
+    [openPanel setAllowedFileTypes:[NSArray arrayWithObjects:@"reel", nil]];
+    if ([openPanel runModal] == NSOKButton)
+    {
+        if (files.count > 0) {
+            NSAlert* msgBox = [[NSAlert alloc] init] ;
+            [msgBox setMessageText: @"Open tape master?"];
+            [msgBox setInformativeText:@"This will clear the current project!"];
+            [msgBox addButtonWithTitle: @"No"];
+            [msgBox addButtonWithTitle:@"Yes"];
+            if ([msgBox runModal] == NSAlertSecondButtonReturn) {
+                [files removeAllObjects];
+                [self.filetable reloadData];
+                precalcMinutes = 0;
+                [self _fillMeters];
+                [self.tapelen setStringValue:@"90"];
+            } else return;
+        }
+        NSOpenPanel *dir = [[NSOpenPanel alloc] init];
+        [dir setCanChooseFiles:false];
+        [dir setCanChooseDirectories:true];
+        [dir setAllowsMultipleSelection:false];
+        [dir setTitle:@"Select extraction folder"];
+        if ([dir runModal] == NSOKButton)
+        {
+            NSURL *dest = [dir URL];
+            
+            NSDictionary* master = [[AIReelRecorder sharedInstance]openReelFromFile:[openPanel URL] extractedTo:dest];
+            [self.tapelen setStringValue:[NSString stringWithFormat:@"%i", [[master objectForKey:@"length"]intValue]]];
+            NSArray* list = [NSKeyedUnarchiver unarchiveObjectWithData:[master objectForKey:@"data"]];
+            files = [list mutableCopy];
+            
+            if(master[@"eq"]) [self writeEqBandsGlobal:master[@"eq"]];
+            [self.filetable reloadData];
+            [self _fillMeters];
+
+        }
+    }
+    [self noPanel:self.masterProcPanel];
+}
+
+- (IBAction)packTape:(id)sender {
+    if (isRecording) return;
+    if(files.count == 0) return;
+    [self panel:self.masterProcPanel];
+    NSSavePanel *save = [[NSSavePanel alloc]init];
+    [save setAllowedFileTypes:@[@"reel"]];
+    [save setAllowsOtherFileTypes:false];
+    if ([save runModal] == NSOKButton) {
+        NSMutableDictionary * proj = [NSMutableDictionary new];
+        [proj setValue:[NSNumber numberWithInt:self.tapelen.intValue] forKey:@"length"];
+        [proj setValue:[self eqBandsGlobal] forKey:@"eq"];
+        [[AIReelRecorder sharedInstance]createReel:[save URL] fromTracks:files pData:proj];
+    }
+    [self noPanel:self.masterProcPanel];
 }
 @end

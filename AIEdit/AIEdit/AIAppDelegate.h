@@ -11,19 +11,39 @@
 #import "AITapeTrack.h"
 #import "AKPioneerTapeRecorder.h"
 #import "ORSSerialPortManager.h"
+#import "AIAudioOutputPlayer.h"
+#import "AIReelRecorder.h"
 @interface AIAppDelegate : NSObject <NSApplicationDelegate, AVAudioPlayerDelegate, NSTableViewDataSource>
 {
     NSMutableArray* files;
     float precalcMinutes;
-    AVAudioPlayer* cur;
+    NSURL* cur;
     int currentIdx;
     enum TapeSide currentSide;
     NSDate *start;
     AKPioneerTapeRecorder* deck;
 }
+- (IBAction)unpackTape:(id)sender;
+
+- (IBAction)packTape:(id)sender;
+@property (weak) IBOutlet NSProgressIndicator *masterProcProg;
+@property (unsafe_unretained) IBOutlet NSPanel *masterProcPanel;
+@property (strong) IBOutlet NSButton *globalZero;
+@property (weak) IBOutlet NSBox *globalBox;
+@property (weak) IBOutlet NSSlider *globLvl;
+- (IBAction)eqchange:(id)sender;
+@property (weak) IBOutlet NSBox *selbox;
+@property (weak) IBOutlet NSTextField *prevStat;
+@property (weak) IBOutlet NSSlider *selPan;
+@property (weak) IBOutlet NSSlider *globalPan;
+@property (weak) IBOutlet NSButton *selZero;
+@property (weak) IBOutlet NSButton *prevPlay;
+@property (weak) IBOutlet NSButton *recauto;
+@property (weak) IBOutlet NSPopUpButton *sideDoneAction;
 @property (weak) IBOutlet NSPopUpButton *portList;
 @property (weak) IBOutlet NSTextField *header;
 @property (weak) IBOutlet NSTextField *tapelen;
+@property (weak) IBOutlet NSSlider *selLvl;
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *statis;
 - (IBAction)recStart:(id)sender;
@@ -31,6 +51,7 @@
 @property (weak) IBOutlet NSButton *startBtn;
 - (IBAction)start2:(id)sender;
 - (IBAction)add:(id)sender;
+- (IBAction)gap:(id)sender;
 @property (weak) IBOutlet NSTableView *filetable;
 - (IBAction)rem:(id)sender;
 @property (weak) IBOutlet NSProgressIndicator *bar1;
@@ -43,5 +64,6 @@
 @property (weak) IBOutlet NSTextField *remainB;
 - (IBAction)transportButtonClicked:(id)sender;
 - (IBAction)transportComChg:(id)sender;
+@property (weak) IBOutlet NSButton *gapadd;
 
 @end

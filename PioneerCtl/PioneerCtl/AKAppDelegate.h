@@ -8,10 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ORSSerialPortManager.h"
+#import "Barista.h"
 #import "AKPioneerTapeRecorder.h"
 @interface AKAppDelegate : NSObject <NSApplicationDelegate>
 {
     AKPioneerTapeRecorder* deck;
+    BARServer* srv;
+    NSArray* actz;
+    
 }
 - (IBAction)chgPort:(id)sender;
 

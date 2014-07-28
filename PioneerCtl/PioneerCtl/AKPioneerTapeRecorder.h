@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "ORSSerialPort.h"
-@interface AKPioneerTapeRecorder : NSObject
+@interface AKPioneerTapeRecorder : NSObject <ORSSerialPortDelegate>
 {
     ORSSerialPort* port;
     bool isPlaying;

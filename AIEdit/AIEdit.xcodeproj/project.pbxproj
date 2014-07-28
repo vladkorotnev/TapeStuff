@@ -24,7 +24,24 @@
 		82296E5518F10C7F00328B27 /* cassette90.png in Resources */ = {isa = PBXBuildFile; fileRef = 82296E5418F10C7F00328B27 /* cassette90.png */; };
 		82296E5718F10FCA00328B27 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82296E5618F10FCA00328B27 /* AVFoundation.framework */; };
 		82296E5A18F110AF00328B27 /* AITapeTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 82296E5918F110AF00328B27 /* AITapeTrack.m */; };
+		8241E8381980D02600EC8E6A /* tapemas.png in Resources */ = {isa = PBXBuildFile; fileRef = 8241E8371980D02600EC8E6A /* tapemas.png */; };
+		8241E83B1980D1F600EC8E6A /* AIReelRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241E83A1980D1F600EC8E6A /* AIReelRecorder.m */; };
+		8241E83D1980D22800EC8E6A /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8241E83C1980D22800EC8E6A /* libz.1.2.5.dylib */; };
 		824EE2EA18F43D2C00F9E75F /* AVAudioGapPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 824EE2E918F43D2C00F9E75F /* AVAudioGapPlayer.m */; };
+		82664797197272EF00E30C60 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82664796197272EF00E30C60 /* CoreAudio.framework */; };
+		8266479A1972751400E30C60 /* AIAudioOutputPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 826647991972751400E30C60 /* AIAudioOutputPlayer.mm */; };
+		8266479C1972756D00E30C60 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8266479B1972756D00E30C60 /* AudioToolbox.framework */; };
+		8266479E1972757100E30C60 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8266479D1972757100E30C60 /* AudioUnit.framework */; };
+		826647A01972788300E30C60 /* test.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8266479F1972788300E30C60 /* test.mp3 */; };
+		826647D31972898E00E30C60 /* CAAudioChannelLayout.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 826647C01972898E00E30C60 /* CAAudioChannelLayout.cpp */; };
+		826647D41972898E00E30C60 /* CAAudioChannelLayoutObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 826647C21972898E00E30C60 /* CAAudioChannelLayoutObject.cpp */; };
+		826647D51972898E00E30C60 /* CAAudioUnit.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 826647C31972898E00E30C60 /* CAAudioUnit.cpp */; };
+		826647D61972898E00E30C60 /* CAComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 826647C71972898E00E30C60 /* CAComponent.cpp */; };
+		826647D71972898E00E30C60 /* CAComponentDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 826647C91972898E00E30C60 /* CAComponentDescription.cpp */; };
+		826647D81972898E00E30C60 /* CAStreamBasicDescription.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 826647CF1972898E00E30C60 /* CAStreamBasicDescription.cpp */; };
+		826647D91972898E00E30C60 /* CAXException.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 826647D11972898E00E30C60 /* CAXException.cpp */; };
+		826647DB197289DB00E30C60 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 826647DA197289DB00E30C60 /* CoreServices.framework */; };
+		82B9C9EF1969374700FDF7AD /* tapedoc.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9C9EE1969374700FDF7AD /* tapedoc.png */; };
 		82C2AD74190116720085D2D4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2AD73190116720085D2D4 /* IOKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +54,18 @@
 			remoteInfo = AIEdit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		826647DE1972949C00E30C60 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		820067D5190115AD0082A6B1 /* ORSSerialPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORSSerialPort.h; sourceTree = "<group>"; };
@@ -68,8 +97,41 @@
 		82296E5618F10FCA00328B27 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		82296E5818F110AF00328B27 /* AITapeTrack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AITapeTrack.h; sourceTree = "<group>"; };
 		82296E5918F110AF00328B27 /* AITapeTrack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AITapeTrack.m; sourceTree = "<group>"; };
+		8241E8371980D02600EC8E6A /* tapemas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tapemas.png; sourceTree = "<group>"; };
+		8241E8391980D1F600EC8E6A /* AIReelRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIReelRecorder.h; sourceTree = "<group>"; };
+		8241E83A1980D1F600EC8E6A /* AIReelRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIReelRecorder.m; sourceTree = "<group>"; };
+		8241E83C1980D22800EC8E6A /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		824EE2E818F43D2C00F9E75F /* AVAudioGapPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVAudioGapPlayer.h; sourceTree = "<group>"; };
 		824EE2E918F43D2C00F9E75F /* AVAudioGapPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVAudioGapPlayer.m; sourceTree = "<group>"; };
+		82664796197272EF00E30C60 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		826647981972751400E30C60 /* AIAudioOutputPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAudioOutputPlayer.h; sourceTree = "<group>"; };
+		826647991972751400E30C60 /* AIAudioOutputPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AIAudioOutputPlayer.mm; sourceTree = "<group>"; };
+		8266479B1972756D00E30C60 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		8266479D1972757100E30C60 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = System/Library/Frameworks/AudioUnit.framework; sourceTree = SDKROOT; };
+		8266479F1972788300E30C60 /* test.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = test.mp3; sourceTree = "<group>"; };
+		826647BE1972898E00E30C60 /* AUOutputBL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AUOutputBL.h; sourceTree = "<group>"; };
+		826647BF1972898E00E30C60 /* CAAtomic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAtomic.h; sourceTree = "<group>"; };
+		826647C01972898E00E30C60 /* CAAudioChannelLayout.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAAudioChannelLayout.cpp; sourceTree = "<group>"; };
+		826647C11972898E00E30C60 /* CAAudioChannelLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAudioChannelLayout.h; sourceTree = "<group>"; };
+		826647C21972898E00E30C60 /* CAAudioChannelLayoutObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAAudioChannelLayoutObject.cpp; sourceTree = "<group>"; };
+		826647C31972898E00E30C60 /* CAAudioUnit.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAAudioUnit.cpp; sourceTree = "<group>"; };
+		826647C41972898E00E30C60 /* CAAudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAudioUnit.h; sourceTree = "<group>"; };
+		826647C51972898E00E30C60 /* CAAutoDisposer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAAutoDisposer.h; sourceTree = "<group>"; };
+		826647C61972898E00E30C60 /* CACFDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CACFDictionary.h; sourceTree = "<group>"; };
+		826647C71972898E00E30C60 /* CAComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAComponent.cpp; sourceTree = "<group>"; };
+		826647C81972898E00E30C60 /* CAComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAComponent.h; sourceTree = "<group>"; };
+		826647C91972898E00E30C60 /* CAComponentDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAComponentDescription.cpp; sourceTree = "<group>"; };
+		826647CA1972898E00E30C60 /* CAComponentDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAComponentDescription.h; sourceTree = "<group>"; };
+		826647CB1972898E00E30C60 /* CADebugMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugMacros.h; sourceTree = "<group>"; };
+		826647CC1972898E00E30C60 /* CADebugPrintf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CADebugPrintf.h; sourceTree = "<group>"; };
+		826647CD1972898E00E30C60 /* CAMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAMath.h; sourceTree = "<group>"; };
+		826647CE1972898E00E30C60 /* CAReferenceCounted.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAReferenceCounted.h; sourceTree = "<group>"; };
+		826647CF1972898E00E30C60 /* CAStreamBasicDescription.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAStreamBasicDescription.cpp; sourceTree = "<group>"; };
+		826647D01972898E00E30C60 /* CAStreamBasicDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAStreamBasicDescription.h; sourceTree = "<group>"; };
+		826647D11972898E00E30C60 /* CAXException.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CAXException.cpp; sourceTree = "<group>"; };
+		826647D21972898E00E30C60 /* CAXException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAXException.h; sourceTree = "<group>"; };
+		826647DA197289DB00E30C60 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		82B9C9EE1969374700FDF7AD /* tapedoc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tapedoc.png; sourceTree = "<group>"; };
 		82C2AD711901166B0085D2D4 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		82C2AD73190116720085D2D4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -79,6 +141,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8241E83D1980D22800EC8E6A /* libz.1.2.5.dylib in Frameworks */,
+				826647DB197289DB00E30C60 /* CoreServices.framework in Frameworks */,
+				8266479E1972757100E30C60 /* AudioUnit.framework in Frameworks */,
+				8266479C1972756D00E30C60 /* AudioToolbox.framework in Frameworks */,
+				82664797197272EF00E30C60 /* CoreAudio.framework in Frameworks */,
 				82C2AD74190116720085D2D4 /* IOKit.framework in Frameworks */,
 				82296E5718F10FCA00328B27 /* AVFoundation.framework in Frameworks */,
 				82296E2118F10AEB00328B27 /* Cocoa.framework in Frameworks */,
@@ -119,6 +186,11 @@
 		82296E1F18F10AEB00328B27 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8241E83C1980D22800EC8E6A /* libz.1.2.5.dylib */,
+				826647DA197289DB00E30C60 /* CoreServices.framework */,
+				8266479D1972757100E30C60 /* AudioUnit.framework */,
+				8266479B1972756D00E30C60 /* AudioToolbox.framework */,
+				82664796197272EF00E30C60 /* CoreAudio.framework */,
 				82C2AD73190116720085D2D4 /* IOKit.framework */,
 				82C2AD711901166B0085D2D4 /* CoreAudioKit.framework */,
 				82296E5618F10FCA00328B27 /* AVFoundation.framework */,
@@ -142,20 +214,23 @@
 		82296E2618F10AEB00328B27 /* AIEdit */ = {
 			isa = PBXGroup;
 			children = (
-				820067D5190115AD0082A6B1 /* ORSSerialPort.h */,
-				820067D6190115AD0082A6B1 /* ORSSerialPort.m */,
-				820067D7190115AD0082A6B1 /* ORSSerialPortManager.h */,
-				820067D8190115AD0082A6B1 /* ORSSerialPortManager.m */,
+				8241E8391980D1F600EC8E6A /* AIReelRecorder.h */,
+				8241E83A1980D1F600EC8E6A /* AIReelRecorder.m */,
 				820067D9190115AD0082A6B1 /* AKPioneerTapeRecorder.h */,
 				820067DA190115AD0082A6B1 /* AKPioneerTapeRecorder.m */,
 				82296E3218F10AEB00328B27 /* AIAppDelegate.h */,
 				82296E3318F10AEB00328B27 /* AIAppDelegate.m */,
+				826647981972751400E30C60 /* AIAudioOutputPlayer.h */,
+				826647991972751400E30C60 /* AIAudioOutputPlayer.mm */,
 				82296E5818F110AF00328B27 /* AITapeTrack.h */,
 				82296E5918F110AF00328B27 /* AITapeTrack.m */,
+				8241E8371980D02600EC8E6A /* tapemas.png */,
+				82B9C9EE1969374700FDF7AD /* tapedoc.png */,
 				82296E5418F10C7F00328B27 /* cassette90.png */,
 				82296E3518F10AEB00328B27 /* MainMenu.xib */,
 				824EE2E818F43D2C00F9E75F /* AVAudioGapPlayer.h */,
 				824EE2E918F43D2C00F9E75F /* AVAudioGapPlayer.m */,
+				8266479F1972788300E30C60 /* test.mp3 */,
 				82296E3818F10AEB00328B27 /* Images.xcassets */,
 				82296E2718F10AEB00328B27 /* Supporting Files */,
 			);
@@ -165,6 +240,31 @@
 		82296E2718F10AEB00328B27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				820067D5190115AD0082A6B1 /* ORSSerialPort.h */,
+				820067D6190115AD0082A6B1 /* ORSSerialPort.m */,
+				820067D7190115AD0082A6B1 /* ORSSerialPortManager.h */,
+				820067D8190115AD0082A6B1 /* ORSSerialPortManager.m */,
+				826647BE1972898E00E30C60 /* AUOutputBL.h */,
+				826647BF1972898E00E30C60 /* CAAtomic.h */,
+				826647C01972898E00E30C60 /* CAAudioChannelLayout.cpp */,
+				826647C11972898E00E30C60 /* CAAudioChannelLayout.h */,
+				826647C21972898E00E30C60 /* CAAudioChannelLayoutObject.cpp */,
+				826647C31972898E00E30C60 /* CAAudioUnit.cpp */,
+				826647C41972898E00E30C60 /* CAAudioUnit.h */,
+				826647C51972898E00E30C60 /* CAAutoDisposer.h */,
+				826647C61972898E00E30C60 /* CACFDictionary.h */,
+				826647C71972898E00E30C60 /* CAComponent.cpp */,
+				826647C81972898E00E30C60 /* CAComponent.h */,
+				826647C91972898E00E30C60 /* CAComponentDescription.cpp */,
+				826647CA1972898E00E30C60 /* CAComponentDescription.h */,
+				826647CB1972898E00E30C60 /* CADebugMacros.h */,
+				826647CC1972898E00E30C60 /* CADebugPrintf.h */,
+				826647CD1972898E00E30C60 /* CAMath.h */,
+				826647CE1972898E00E30C60 /* CAReferenceCounted.h */,
+				826647CF1972898E00E30C60 /* CAStreamBasicDescription.cpp */,
+				826647D01972898E00E30C60 /* CAStreamBasicDescription.h */,
+				826647D11972898E00E30C60 /* CAXException.cpp */,
+				826647D21972898E00E30C60 /* CAXException.h */,
 				82296E2818F10AEB00328B27 /* AIEdit-Info.plist */,
 				82296E2918F10AEB00328B27 /* InfoPlist.strings */,
 				82296E2C18F10AEB00328B27 /* main.m */,
@@ -202,6 +302,7 @@
 				82296E1918F10AEB00328B27 /* Sources */,
 				82296E1A18F10AEB00328B27 /* Frameworks */,
 				82296E1B18F10AEB00328B27 /* Resources */,
+				826647DE1972949C00E30C60 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -270,9 +371,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				82296E2B18F10AEB00328B27 /* InfoPlist.strings in Resources */,
+				8241E8381980D02600EC8E6A /* tapemas.png in Resources */,
 				82296E5518F10C7F00328B27 /* cassette90.png in Resources */,
+				82B9C9EF1969374700FDF7AD /* tapedoc.png in Resources */,
 				82296E3918F10AEB00328B27 /* Images.xcassets in Resources */,
 				82296E3118F10AEB00328B27 /* Credits.rtf in Resources */,
+				826647A01972788300E30C60 /* test.mp3 in Resources */,
 				82296E3718F10AEB00328B27 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,13 +396,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				826647D91972898E00E30C60 /* CAXException.cpp in Sources */,
 				82296E3418F10AEB00328B27 /* AIAppDelegate.m in Sources */,
+				826647D41972898E00E30C60 /* CAAudioChannelLayoutObject.cpp in Sources */,
+				8241E83B1980D1F600EC8E6A /* AIReelRecorder.m in Sources */,
 				820067DB190115AD0082A6B1 /* ORSSerialPort.m in Sources */,
+				8266479A1972751400E30C60 /* AIAudioOutputPlayer.mm in Sources */,
+				826647D51972898E00E30C60 /* CAAudioUnit.cpp in Sources */,
 				82296E2D18F10AEB00328B27 /* main.m in Sources */,
+				826647D31972898E00E30C60 /* CAAudioChannelLayout.cpp in Sources */,
+				826647D61972898E00E30C60 /* CAComponent.cpp in Sources */,
 				820067DC190115AD0082A6B1 /* ORSSerialPortManager.m in Sources */,
 				82296E5A18F110AF00328B27 /* AITapeTrack.m in Sources */,
+				826647D71972898E00E30C60 /* CAComponentDescription.cpp in Sources */,
 				820067DD190115AD0082A6B1 /* AKPioneerTapeRecorder.m in Sources */,
 				824EE2EA18F43D2C00F9E75F /* AVAudioGapPlayer.m in Sources */,
+				826647D81972898E00E30C60 /* CAStreamBasicDescription.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,7 +500,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -419,7 +532,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -427,8 +540,11 @@
 		82296E4F18F10AEB00328B27 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AIEdit/AIEdit-Prefix.pch";
 				INFOPLIST_FILE = "AIEdit/AIEdit-Info.plist";
@@ -441,8 +557,11 @@
 		82296E5018F10AEB00328B27 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "AIEdit/AIEdit-Prefix.pch";
 				INFOPLIST_FILE = "AIEdit/AIEdit-Info.plist";
