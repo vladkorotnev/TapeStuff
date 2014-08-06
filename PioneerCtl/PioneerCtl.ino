@@ -119,6 +119,10 @@ void serialEvent() {
                   sendByte(command_power);
                   incomingByte = 0;
                 }
+                if(incomingByte == 'M') {
+                   Serial.print("PIONEER"); 
+                    incomingByte = 0;
+                }
               if(incomingByte != 0) {   Serial.print(incomingByte); 
                 Serial.print("?");
                 incomingByte = 0;
