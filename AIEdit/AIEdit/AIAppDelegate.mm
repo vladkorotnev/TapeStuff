@@ -13,6 +13,8 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    
+    
     files = [NSMutableArray new];
     [self.filetable setDataSource:self]; [self.filetable setDelegate:self];
     for (ORSSerialPort*p in [[ORSSerialPortManager sharedSerialPortManager]availablePorts])
@@ -24,7 +26,25 @@
         [self transportComChg:self];
     }
     
+    
     AIAudioOutputPlayer *otp = [AIAudioOutputPlayer sharedAudioFilePlayer];
+   mOutputDeviceList = new AudioDeviceList(false);
+    AudioObjectPropertyAddress theAddress = { kAudioHardwarePropertyDefaultOutputDevice,
+        kAudioObjectPropertyScopeGlobal,
+        kAudioObjectPropertyElementMaster };
+    
+
+    
+    UInt32 propsize = sizeof(AudioDeviceID);
+    verify_noerr (AudioObjectGetPropertyData(kAudioObjectSystemObject,
+                                             &theAddress,
+                                             0,
+                                             NULL,
+                                             &propsize,
+                                             &outputDevice));
+    
+    [otp BuildDeviceMenuFromList:mOutputDeviceList inMenu:self.outSel initial:outputDevice];
+    
     currentIdx=-1;
     
     [self.masterProcProg startAnimation:self];
@@ -42,6 +62,7 @@
     [p orderOut:self];
     [ NSApp endSheet:p returnCode:0 ] ;
 }
+
 - (void) sheetDidEnd:(NSWindow *) sheet returnCode:(int)returnCode contextInfo:(void *) contextInfo {
     
 }
@@ -74,10 +95,13 @@
     [self.recBtn setEnabled:false];
     [self.statis setStringValue:@"Recording side A..."];
     [self.tapelen setEnabled:false];
+    [self.outSel setEnabled:false];
     isRecording = true;
     if (sender && self.recauto.state == 1 && deck) {
         [deck record];
         [deck play];
+    }
+    if (self.leadin.state == 1 && sender) {
         [self.statis setStringValue:@"5 second lead-in skip..."];
         [self performSelector:@selector(recStart:) withObject:Nil afterDelay:5.0];
         return;
@@ -95,6 +119,8 @@
     if (sender && self.recauto.state == 1 && deck) {
         [deck record];
         [deck play];
+    }
+    if (self.leadin.state == 1 && sender) {
         [self.statis setStringValue:@"5 second lead-in skip..."];
         [self performSelector:@selector(start2:) withObject:Nil afterDelay:5.0];
         return;
@@ -135,6 +161,7 @@ NSDate *trkstart;
     currentIdx++;
     if(currentIdx >= files.count) {
         [self.recBtn setEnabled:true];
+        [self.outSel setEnabled:true];
         [self.startBtn setEnabled:false];
         [self.tapelen setEnabled:true];
         [self.statis setStringValue:@"Finished. Enjoy :)"];
@@ -157,6 +184,7 @@ NSDate *trkstart;
         [self notifyWithTitle:@"Side A finished!" andText:@"Please flip the tape and record the side B"];
         [self _doneAction];
         [self.startBtn setEnabled:true];
+        
         return;
     }
     if (t.player) {
@@ -449,46 +477,7 @@ NSDate *trkstart;
     [[NSUserDefaults standardUserDefaults]setObject:[self.portList.selectedItem title] forKey:@"Transport"];
 }
 
-/*
-- (IBAction)zeroEqSel:(id)sender {
-    for (NSSlider*slide in [self.selbox.subviews[0] subviews]) {
-        if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
-            NSLog(@"%@",slide);
-            [slide setFloatValue:0.0f];
-        }
-    }
-}
- - (NSArray*) eqBandsSel {
- NSMutableArray* bands = [NSMutableArray arrayWithCapacity:10];
- for (NSSlider*slide in [self.selbox.subviews[0] subviews]) {
- if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
- bands[slide.tag] = [NSNumber numberWithFloat:slide.floatValue];
- 
- }
- }
- return bands;
- }
- - (void) writeEqBandsSel: (NSArray*)vals {
- for (NSSlider*slide in [self.selbox.subviews[0] subviews]) {
- if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
- [slide setFloatValue:[vals[slide.tag] floatValue]];
- }
- }
- }
- AITapeTrack *curedit;
- - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
- NSLog(@"selc ");
- if(curedit) {
- [curedit setEqualizer:[self eqBandsSel]];
- }
- if (self.filetable.selectedRow >= files.count || self.filetable.selectedRow < 0)
- return;
- 
- AITapeTrack* tt = files[self.filetable.selectedRow];
- [self writeEqBandsSel:tt.equalizer];
- curedit = tt;
- }
- */
+
 - (IBAction)zeroEqGlobal:(id)sender {
     for (NSSlider*slide in [self.globalBox.subviews[0] subviews]) {
         if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
@@ -632,6 +621,18 @@ bool isPreviewing, isRecording;
         }
     }
     [self noPanel:self.masterProcPanel];
+}
+
+- (IBAction)outChange:(id)sender {
+    NSInteger val = [self.outSel indexOfSelectedItem];
+    AudioDeviceID newDevice = (mOutputDeviceList->GetList())[val].mID;
+    
+    if(newDevice != outputDevice)
+    {
+       
+        outputDevice = newDevice;
+        [[AIAudioOutputPlayer sharedAudioFilePlayer]setAudioOutputDevice:outputDevice];
+    }
 }
 
 - (IBAction)packTape:(id)sender {

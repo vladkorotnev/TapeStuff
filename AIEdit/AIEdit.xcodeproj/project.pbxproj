@@ -14,7 +14,7 @@
 		82296E2B18F10AEB00328B27 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 82296E2918F10AEB00328B27 /* InfoPlist.strings */; };
 		82296E2D18F10AEB00328B27 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 82296E2C18F10AEB00328B27 /* main.m */; };
 		82296E3118F10AEB00328B27 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 82296E2F18F10AEB00328B27 /* Credits.rtf */; };
-		82296E3418F10AEB00328B27 /* AIAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82296E3318F10AEB00328B27 /* AIAppDelegate.m */; };
+		82296E3418F10AEB00328B27 /* AIAppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 82296E3318F10AEB00328B27 /* AIAppDelegate.mm */; };
 		82296E3718F10AEB00328B27 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 82296E3518F10AEB00328B27 /* MainMenu.xib */; };
 		82296E3918F10AEB00328B27 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 82296E3818F10AEB00328B27 /* Images.xcassets */; };
 		82296E4018F10AEB00328B27 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82296E3F18F10AEB00328B27 /* XCTest.framework */; };
@@ -27,6 +27,10 @@
 		8241E8381980D02600EC8E6A /* tapemas.png in Resources */ = {isa = PBXBuildFile; fileRef = 8241E8371980D02600EC8E6A /* tapemas.png */; };
 		8241E83B1980D1F600EC8E6A /* AIReelRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8241E83A1980D1F600EC8E6A /* AIReelRecorder.m */; };
 		8241E83D1980D22800EC8E6A /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8241E83C1980D22800EC8E6A /* libz.1.2.5.dylib */; };
+		824CB0BD1A66267500C1714B /* AudioDevice.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 824CB0B91A66267500C1714B /* AudioDevice.cpp */; };
+		824CB0BE1A66267500C1714B /* AudioDeviceList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 824CB0BB1A66267500C1714B /* AudioDeviceList.cpp */; };
+		824CB0C01A662B8500C1714B /* AudioDevice.h in Headers */ = {isa = PBXBuildFile; fileRef = 824CB0BA1A66267500C1714B /* AudioDevice.h */; };
+		824CB0C11A662B8500C1714B /* AudioDeviceList.h in Headers */ = {isa = PBXBuildFile; fileRef = 824CB0BC1A66267500C1714B /* AudioDeviceList.h */; };
 		824EE2EA18F43D2C00F9E75F /* AVAudioGapPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 824EE2E918F43D2C00F9E75F /* AVAudioGapPlayer.m */; };
 		82664797197272EF00E30C60 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82664796197272EF00E30C60 /* CoreAudio.framework */; };
 		8266479A1972751400E30C60 /* AIAudioOutputPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 826647991972751400E30C60 /* AIAudioOutputPlayer.mm */; };
@@ -74,6 +78,7 @@
 		820067D8190115AD0082A6B1 /* ORSSerialPortManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ORSSerialPortManager.m; sourceTree = "<group>"; };
 		820067D9190115AD0082A6B1 /* AKPioneerTapeRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKPioneerTapeRecorder.h; sourceTree = "<group>"; };
 		820067DA190115AD0082A6B1 /* AKPioneerTapeRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKPioneerTapeRecorder.m; sourceTree = "<group>"; };
+		822204C61A5535A5003E7C09 /* AIAUViewFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIAUViewFactory.h; sourceTree = "<group>"; };
 		82296E1D18F10AEB00328B27 /* AIEdit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIEdit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82296E2018F10AEB00328B27 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		82296E2318F10AEB00328B27 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -85,7 +90,7 @@
 		82296E2E18F10AEB00328B27 /* AIEdit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AIEdit-Prefix.pch"; sourceTree = "<group>"; };
 		82296E3018F10AEB00328B27 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		82296E3218F10AEB00328B27 /* AIAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AIAppDelegate.h; sourceTree = "<group>"; };
-		82296E3318F10AEB00328B27 /* AIAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AIAppDelegate.m; sourceTree = "<group>"; };
+		82296E3318F10AEB00328B27 /* AIAppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AIAppDelegate.mm; sourceTree = "<group>"; };
 		82296E3618F10AEB00328B27 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		82296E3818F10AEB00328B27 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		82296E3E18F10AEB00328B27 /* AIEditTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AIEditTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +106,10 @@
 		8241E8391980D1F600EC8E6A /* AIReelRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIReelRecorder.h; sourceTree = "<group>"; };
 		8241E83A1980D1F600EC8E6A /* AIReelRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIReelRecorder.m; sourceTree = "<group>"; };
 		8241E83C1980D22800EC8E6A /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		824CB0B91A66267500C1714B /* AudioDevice.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioDevice.cpp; sourceTree = "<group>"; };
+		824CB0BA1A66267500C1714B /* AudioDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDevice.h; sourceTree = "<group>"; };
+		824CB0BB1A66267500C1714B /* AudioDeviceList.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AudioDeviceList.cpp; sourceTree = "<group>"; };
+		824CB0BC1A66267500C1714B /* AudioDeviceList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioDeviceList.h; sourceTree = "<group>"; };
 		824EE2E818F43D2C00F9E75F /* AVAudioGapPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVAudioGapPlayer.h; sourceTree = "<group>"; };
 		824EE2E918F43D2C00F9E75F /* AVAudioGapPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVAudioGapPlayer.m; sourceTree = "<group>"; };
 		82664796197272EF00E30C60 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
@@ -219,9 +228,10 @@
 				820067D9190115AD0082A6B1 /* AKPioneerTapeRecorder.h */,
 				820067DA190115AD0082A6B1 /* AKPioneerTapeRecorder.m */,
 				82296E3218F10AEB00328B27 /* AIAppDelegate.h */,
-				82296E3318F10AEB00328B27 /* AIAppDelegate.m */,
+				82296E3318F10AEB00328B27 /* AIAppDelegate.mm */,
 				826647981972751400E30C60 /* AIAudioOutputPlayer.h */,
 				826647991972751400E30C60 /* AIAudioOutputPlayer.mm */,
+				822204C61A5535A5003E7C09 /* AIAUViewFactory.h */,
 				82296E5818F110AF00328B27 /* AITapeTrack.h */,
 				82296E5918F110AF00328B27 /* AITapeTrack.m */,
 				8241E8371980D02600EC8E6A /* tapemas.png */,
@@ -240,6 +250,10 @@
 		82296E2718F10AEB00328B27 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				824CB0B91A66267500C1714B /* AudioDevice.cpp */,
+				824CB0BA1A66267500C1714B /* AudioDevice.h */,
+				824CB0BB1A66267500C1714B /* AudioDeviceList.cpp */,
+				824CB0BC1A66267500C1714B /* AudioDeviceList.h */,
 				820067D5190115AD0082A6B1 /* ORSSerialPort.h */,
 				820067D6190115AD0082A6B1 /* ORSSerialPort.m */,
 				820067D7190115AD0082A6B1 /* ORSSerialPortManager.h */,
@@ -294,11 +308,24 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		824CB0BF1A662B6E00C1714B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				824CB0C01A662B8500C1714B /* AudioDevice.h in Headers */,
+				824CB0C11A662B8500C1714B /* AudioDeviceList.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		82296E1C18F10AEB00328B27 /* AIEdit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82296E4E18F10AEB00328B27 /* Build configuration list for PBXNativeTarget "AIEdit" */;
 			buildPhases = (
+				824CB0BF1A662B6E00C1714B /* Headers */,
 				82296E1918F10AEB00328B27 /* Sources */,
 				82296E1A18F10AEB00328B27 /* Frameworks */,
 				82296E1B18F10AEB00328B27 /* Resources */,
@@ -397,14 +424,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				826647D91972898E00E30C60 /* CAXException.cpp in Sources */,
-				82296E3418F10AEB00328B27 /* AIAppDelegate.m in Sources */,
+				82296E3418F10AEB00328B27 /* AIAppDelegate.mm in Sources */,
 				826647D41972898E00E30C60 /* CAAudioChannelLayoutObject.cpp in Sources */,
 				8241E83B1980D1F600EC8E6A /* AIReelRecorder.m in Sources */,
 				820067DB190115AD0082A6B1 /* ORSSerialPort.m in Sources */,
 				8266479A1972751400E30C60 /* AIAudioOutputPlayer.mm in Sources */,
+				824CB0BE1A66267500C1714B /* AudioDeviceList.cpp in Sources */,
 				826647D51972898E00E30C60 /* CAAudioUnit.cpp in Sources */,
 				82296E2D18F10AEB00328B27 /* main.m in Sources */,
 				826647D31972898E00E30C60 /* CAAudioChannelLayout.cpp in Sources */,
+				824CB0BD1A66267500C1714B /* AudioDevice.cpp in Sources */,
 				826647D61972898E00E30C60 /* CAComponent.cpp in Sources */,
 				820067DC190115AD0082A6B1 /* ORSSerialPortManager.m in Sources */,
 				82296E5A18F110AF00328B27 /* AITapeTrack.m in Sources */,

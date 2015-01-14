@@ -9,12 +9,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AIEdit/AIAppDelegate.m"
-            timestampString = "427878779.640831"
+            filePath = "AIEdit/AIAppDelegate.mm"
+            timestampString = "442904520.141717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "397"
-            endingLineNumber = "397"
+            startingLineNumber = "425"
+            endingLineNumber = "425"
             landmarkName = "-transportButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -25,12 +25,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AIEdit/AIAppDelegate.m"
-            timestampString = "427875299.305251"
+            filePath = "AIEdit/AIAppDelegate.mm"
+            timestampString = "442904520.141717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
             landmarkName = "-gap:"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AIEdit/AIAppDelegate.h"
-            timestampString = "427878306.924377"
+            timestampString = "442904453.074912"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-gap:"
             landmarkType = "4">
          </BreakpointContent>
@@ -73,13 +73,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AIEdit/AIAppDelegate.m"
-            timestampString = "427875299.305251"
+            filePath = "AIEdit/AIAppDelegate.mm"
+            timestampString = "442904520.141717"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "-_trackEndReached"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AIEdit/AIAudioOutputPlayer.mm"
+            timestampString = "442903607.789418"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "-BuildDeviceMenuFromList:inMenu:initial:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

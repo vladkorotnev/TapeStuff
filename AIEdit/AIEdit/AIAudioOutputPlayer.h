@@ -10,7 +10,7 @@
 #import <CoreAudio/CoreAudio.h>
 #import <AudioToolbox/AudioToolbox.h>
 #import <AudioUnit/AudioUnit.h>
-
+#include "AudioDeviceList.h"
 
 @interface AIAudioOutputPlayer : NSObject
 
@@ -18,4 +18,7 @@
 - (void) setEQFromArray:(NSArray*)tenBands ;
 - (void) playURL:(NSURL*)url;
 - (void) stop;
+- (CFArrayRef)deviceList;
+- (void) BuildDeviceMenuFromList:(AudioDeviceList *)devlist inMenu:(NSPopUpButton *)menu initial:(AudioDeviceID) initSel;
+- (void) setAudioOutputDevice:(AudioDeviceID)oid;
 @end

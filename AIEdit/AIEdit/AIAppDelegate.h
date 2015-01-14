@@ -11,9 +11,10 @@
 #import "AITapeTrack.h"
 #import "AKPioneerTapeRecorder.h"
 #import "ORSSerialPortManager.h"
-#import "AIAudioOutputPlayer.h"
+#include "AIAudioOutputPlayer.h"
 #import "AIReelRecorder.h"
-@interface AIAppDelegate : NSObject <NSApplicationDelegate, AVAudioPlayerDelegate, NSTableViewDataSource>
+#import <CoreAudio/CoreAudio.h>
+@interface AIAppDelegate : NSObject <NSApplicationDelegate, AVAudioPlayerDelegate, NSTableViewDataSource, NSTableViewDelegate>
 {
     NSMutableArray* files;
     float precalcMinutes;
@@ -22,8 +23,13 @@
     enum TapeSide currentSide;
     NSDate *start;
     AKPioneerTapeRecorder* deck;
+    AudioDeviceList	*				mOutputDeviceList;
+    AudioDeviceID					outputDevice;
 }
 - (IBAction)unpackTape:(id)sender;
+@property (weak) IBOutlet NSPopUpButton *outSel;
+- (IBAction)outChange:(id)sender;
+@property (weak) IBOutlet NSButton *leadin;
 
 - (IBAction)packTape:(id)sender;
 @property (weak) IBOutlet NSProgressIndicator *masterProcProg;
