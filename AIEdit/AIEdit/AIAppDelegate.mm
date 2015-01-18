@@ -62,6 +62,10 @@
     [p orderOut:self];
     [ NSApp endSheet:p returnCode:0 ] ;
 }
+- (NSSize)windowWillResize:(NSWindow *)window toSize:(NSSize)proposedFrameSize {
+    proposedFrameSize.width = window.frame.size.width;
+    return proposedFrameSize;
+}
 
 - (void) sheetDidEnd:(NSWindow *) sheet returnCode:(int)returnCode contextInfo:(void *) contextInfo {
     
@@ -621,6 +625,10 @@ bool isPreviewing, isRecording;
         }
     }
     [self noPanel:self.masterProcPanel];
+}
+- (IBAction)mvUp:(id)sender {
+}
+- (IBAction)mvDn:(id)sender {
 }
 
 - (IBAction)outChange:(id)sender {
