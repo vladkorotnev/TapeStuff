@@ -867,7 +867,7 @@ CA
                                 <slider horizontalHuggingPriority="750" id="uLh-eg-MRW">
                                     <rect key="frame" x="65" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="eIz-G3-ddf"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="eIz-G3-ddf"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="chQ-L5-9XS"/>
                                     </connections>
@@ -875,7 +875,7 @@ CA
                                 <slider horizontalHuggingPriority="750" tag="1" id="18i-4Z-ndv">
                                     <rect key="frame" x="90" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="48r-ww-NRY"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="48r-ww-NRY"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="w5K-qa-Sil"/>
                                     </connections>
@@ -883,7 +883,7 @@ CA
                                 <slider horizontalHuggingPriority="750" tag="2" id="1Ie-3P-rIB">
                                     <rect key="frame" x="115" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="N4x-fC-1vQ"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="N4x-fC-1vQ"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="gtz-fl-STR"/>
                                     </connections>
@@ -891,7 +891,7 @@ CA
                                 <slider horizontalHuggingPriority="750" tag="3" id="124-WC-wqP">
                                     <rect key="frame" x="140" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="KZn-FT-0IZ"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="KZn-FT-0IZ"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="juA-hh-zgi"/>
                                     </connections>
@@ -899,7 +899,7 @@ CA
                                 <slider horizontalHuggingPriority="750" tag="4" id="ymQ-1l-hVC">
                                     <rect key="frame" x="165" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="bcO-N7-Wxn"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="bcO-N7-Wxn"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="LZS-3c-nTE"/>
                                     </connections>
@@ -907,7 +907,7 @@ CA
                                 <slider horizontalHuggingPriority="750" tag="5" id="wBn-Nx-ecJ">
                                     <rect key="frame" x="190" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="ris-tH-CGX"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="ris-tH-CGX"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="VX9-iQ-sSP"/>
                                     </connections>
@@ -915,7 +915,7 @@ CA
                                 <slider horizontalHuggingPriority="750" tag="6" id="wQL-uf-dUF">
                                     <rect key="frame" x="215" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="zrx-DG-Rn1"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="zrx-DG-Rn1"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="kBn-7k-v1o"/>
                                     </connections>
@@ -923,7 +923,7 @@ CA
                                 <slider horizontalHuggingPriority="750" tag="7" id="N1P-zg-zlX">
                                     <rect key="frame" x="240" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="fxb-te-Vmj"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="fxb-te-Vmj"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="woJ-bM-mDo"/>
                                     </connections>
@@ -931,7 +931,7 @@ CA
                                 <slider horizontalHuggingPriority="750" tag="8" id="CSH-lK-5so">
                                     <rect key="frame" x="265" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="8rA-Vl-yaM"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="8rA-Vl-yaM"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="Am5-jq-t35"/>
                                     </connections>
@@ -1029,7 +1029,7 @@ CA
                                 <slider horizontalHuggingPriority="750" tag="9" id="BCX-YT-ouo">
                                     <rect key="frame" x="290" y="25" width="21" height="96"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="left" sliderType="linear" id="4aM-or-Nom"/>
+                                    <sliderCell key="cell" alignment="left" minValue="-15" maxValue="15" tickMarkPosition="right" sliderType="linear" id="4aM-or-Nom"/>
                                     <connections>
                                         <action selector="eqchange:" target="494" id="Jwi-0e-wSS"/>
                                     </connections>
@@ -1191,30 +1191,8 @@ CA
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
-                    <button verticalHuggingPriority="750" id="BUI-az-wqe">
-                        <rect key="frame" x="766" y="357" width="31" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Up" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vLl-Vd-uch">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="mvUp:" target="494" id="QzI-Yq-yct"/>
-                        </connections>
-                    </button>
-                    <button verticalHuggingPriority="750" id="Jl6-UJ-fp5">
-                        <rect key="frame" x="736" y="357" width="31" height="24"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Dn" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="fPf-3K-Aul">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="mvDn:" target="494" id="lJU-kO-0tf"/>
-                        </connections>
-                    </button>
                     <button verticalHuggingPriority="750" tag="1" id="o6A-ov-Ckc">
-                        <rect key="frame" x="687" y="357" width="50" height="24"/>
+                        <rect key="frame" x="747" y="357" width="50" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" title="Gap 1s" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e8w-Lo-0cX">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1225,7 +1203,7 @@ CA
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" tag="3" id="jeg-qD-HrX">
-                        <rect key="frame" x="638" y="357" width="50" height="24"/>
+                        <rect key="frame" x="698" y="357" width="50" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" title="Gap 3s" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dCR-sI-Cwg">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1236,7 +1214,7 @@ CA
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" tag="5" id="EuG-Od-JZr">
-                        <rect key="frame" x="589" y="357" width="50" height="24"/>
+                        <rect key="frame" x="649" y="357" width="50" height="24"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="smallSquare" title="Gap 5s" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="V3W-gQ-oUw">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1247,7 +1225,7 @@ CA
                         </connections>
                     </button>
                     <button id="yuG-ff-9xv">
-                        <rect key="frame" x="452" y="360" width="131" height="18"/>
+                        <rect key="frame" x="512" y="360" width="131" height="18"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="check" title="Add with 3s gaps" bezelStyle="regularSquare" imagePosition="left" inset="2" id="TPN-7s-O22">
                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1276,7 +1254,6 @@ CA
                 <outlet property="leadin" destination="7uR-LV-fSc" id="R4T-6M-Fm2"/>
                 <outlet property="masterProcPanel" destination="gH3-1b-GdJ" id="tRX-Eb-SMq"/>
                 <outlet property="masterProcProg" destination="tyz-a0-BzN" id="VaQ-qH-VC1"/>
-                <outlet property="mvUp" destination="BUI-az-wqe" id="l6Z-Sw-LyU"/>
                 <outlet property="outSel" destination="UbS-ao-rln" id="b0L-Td-G7q"/>
                 <outlet property="portList" destination="dtv-LA-WIC" id="FnQ-Qh-809"/>
                 <outlet property="prevPlay" destination="f2B-Wd-kg0" id="Yap-fJ-D7z"/>

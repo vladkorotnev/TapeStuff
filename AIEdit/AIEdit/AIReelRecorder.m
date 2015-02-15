@@ -112,7 +112,7 @@
         [[self gzipInflate:content] writeToURL:[folder URLByAppendingPathComponent:fname] options:NSDataWritingWithoutOverwriting error:&e];
         if (e) {
             NSAlert* msgBox = [[NSAlert alloc] init] ;
-            [msgBox setMessageText: [NSString stringWithFormat:@"Error extracting %@", fname]];
+            [msgBox setMessageText: [NSString stringWithFormat:NSLocalizedString(@"Error extracting %@",@"Msgbox"), fname]];
             [msgBox setInformativeText:e.localizedDescription];
             [msgBox addButtonWithTitle: @"OK"];
             [msgBox runModal];

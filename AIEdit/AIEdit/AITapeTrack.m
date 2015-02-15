@@ -31,7 +31,8 @@
 - (id) init {
     self  = [super init];
     if (self) {
-        self.equalizer = @[@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f];
+        self.equalizer = [@[@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f] mutableCopy];
+        self.level = 1.0f;
     }
     return self;
 }
@@ -69,7 +70,7 @@
         
         
         self.fname = [aDecoder decodeObjectForKey:@"fname"];
-        self.equalizer = [aDecoder decodeObjectForKey:@"equalizer"];
+        self.equalizer = [[aDecoder decodeObjectForKey:@"equalizer"]mutableCopy];
     }
     return self;
 }

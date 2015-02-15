@@ -17,7 +17,7 @@ enum TapeSide {
 @property (nonatomic) enum TapeSide predictedSide;
 @property (nonatomic) NSString* durStr;
 @property (nonatomic) NSString* fname;
-@property (nonatomic) NSArray* equalizer;
+@property (nonatomic) NSMutableArray* equalizer;
 @property (nonatomic) NSURL* url;
 @property (nonatomic) NSTimeInterval dur;
 @property (nonatomic) float pan;

@@ -84,6 +84,8 @@ static AIAudioOutputPlayer *_sharedAudioFilePlayer = nil;
         // AT this point we make sure we have the file player AU initialized
         // this also propogates the output format of the AU to the output unit
         XThrowIfError (AUGraphInitialize (graph), "AUGraphInitialize");
+        
+        
         CAShow(graph);
     }
     return self;
@@ -325,7 +327,9 @@ static AIAudioOutputPlayer *_sharedAudioFilePlayer = nil;
 
 
 
-
+- (void) setVol:(float) vol {
+    AudioUnitSetParameter ( outUnit, kHALOutputParam_Volume, kAudioUnitScope_Output, 0, vol, 0);
+}
 
 
 @end

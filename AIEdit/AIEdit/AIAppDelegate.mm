@@ -14,7 +14,7 @@
 {
     // Insert code here to initialize your application
     
-    
+    insp = [[AIInspectorWindow alloc]initWithWindowNibName:@"AIInspectorWindow"];
     files = [NSMutableArray new];
     [self.filetable setDataSource:self]; [self.filetable setDelegate:self];
     for (ORSSerialPort*p in [[ORSSerialPortManager sharedSerialPortManager]availablePorts])
@@ -48,7 +48,21 @@
     currentIdx=-1;
     
     [self.masterProcProg startAnimation:self];
+    [self.filetable setDelegate:self];
     
+}
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+    if(self.filetable.selectedRow < 0 || self.filetable.selectedRow >= files.count) {
+        [insp close];
+        return;
+    }
+    AITapeTrack* nus = files[self.filetable.selectedRow];
+    if ([nus.player isKindOfClass:[AVAudioGapPlayer class]]) {
+        [insp close];
+    } else {
+        [insp show];
+        [insp loadTrack:nus];
+    }
 }
 -(void)panel:(NSPanel*)p {
     [[NSApplication sharedApplication] beginSheet:p
@@ -97,7 +111,7 @@
     }
     [self.prevPlay setEnabled:false];
     [self.recBtn setEnabled:false];
-    [self.statis setStringValue:@"Recording side A..."];
+    [self.statis setStringValue:NSLocalizedString(@"Recording side A...", @"Message")];
     [self.tapelen setEnabled:false];
     [self.outSel setEnabled:false];
     isRecording = true;
@@ -106,7 +120,7 @@
         [deck play];
     }
     if (self.leadin.state == 1 && sender) {
-        [self.statis setStringValue:@"5 second lead-in skip..."];
+        [self.statis setStringValue:NSLocalizedString(@"5 second lead-in skip...", @"Message")];
         [self performSelector:@selector(recStart:) withObject:Nil afterDelay:5.0];
         return;
     }
@@ -118,14 +132,14 @@
     [self _trackEndReached];
 }
 - (IBAction)start2:(id)sender {
-    [self.statis setStringValue:@"Recording side B..."];
+    [self.statis setStringValue:NSLocalizedString(@"Recording side B...", @"Message")];
     [self.startBtn setEnabled:false];
     if (sender && self.recauto.state == 1 && deck) {
         [deck record];
         [deck play];
     }
     if (self.leadin.state == 1 && sender) {
-        [self.statis setStringValue:@"5 second lead-in skip..."];
+        [self.statis setStringValue:NSLocalizedString(@"5 second lead-in skip...", @"Message")];
         [self performSelector:@selector(start2:) withObject:Nil afterDelay:5.0];
         return;
     }
@@ -162,16 +176,24 @@
 }
 NSDate *trkstart;
 - (void) _trackEndReached {
+    if (currentIdx >= 0 && currentIdx < files.count) {
+        AITapeTrack *ot = (AITapeTrack*)files[currentIdx];
+        if (ot) {
+            [ot removeObserver:self forKeyPath:@"equalizer"];
+            [ot removeObserver:self forKeyPath:@"level"];
+        }
+    }
+
     currentIdx++;
     if(currentIdx >= files.count) {
         [self.recBtn setEnabled:true];
         [self.outSel setEnabled:true];
         [self.startBtn setEnabled:false];
         [self.tapelen setEnabled:true];
-        [self.statis setStringValue:@"Finished. Enjoy :)"];
+        [self.statis setStringValue:NSLocalizedString(@"Finished. Enjoy :)", @"Message")];
         [self.header setStringValue:@"AIEdit 2"];
          [self.prevPlay setEnabled:true];
-        [self notifyWithTitle:@"Copying finished!" andText:@"Finished copying to tape."];
+        [self notifyWithTitle:NSLocalizedString(@"Copying finished!", @"Notif title")   andText:NSLocalizedString(@"Finished copying to tape.",@"Notif message")];
         cur = nil;
         isRecording = false;
         start = nil;
@@ -182,10 +204,10 @@ NSDate *trkstart;
     }
     AITapeTrack*t  = files[currentIdx];
     if (t.predictedSide != currentSide) {
-        [self.statis setStringValue:@"Waiting for Side B start..."];
+        [self.statis setStringValue:NSLocalizedString(@"Waiting for Side B start...",@"Message")];
         start = nil;
         [self.header setStringValue:@"AIEdit 2"];
-        [self notifyWithTitle:@"Side A finished!" andText:@"Please flip the tape and record the side B"];
+        [self notifyWithTitle:NSLocalizedString(@"Side A finished!", @"Message") andText:NSLocalizedString(@"Please flip the tape and record the side B",@"Message")];
         [self _doneAction];
         [self.startBtn setEnabled:true];
         
@@ -203,7 +225,11 @@ NSDate *trkstart;
     cur = t.url;
     NSLog(@"Playing %@", t.url.absoluteString);
     [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[t equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setVol:t.level];
+    [t addObserver:self forKeyPath:@"equalizer" options:0 context:NULL];
+    [t addObserver:self forKeyPath:@"level" options:0 context:NULL];
     [[AIAudioOutputPlayer sharedAudioFilePlayer]playURL:cur];
+    
     [self.filetable reloadData];
    
     [self performSelector:@selector(_trackEndReached) withObject:nil afterDelay:t.dur];
@@ -255,9 +281,9 @@ NSDate *trkstart;
 {
     if (cur && isRecording) {
         NSAlert* msgBox = [[NSAlert alloc] init] ;
-        [msgBox setMessageText: @"The tape is recording!"];
-        [msgBox setInformativeText:@"The tape is recording. Are you sure you want to quit? This will stop playback."];
-        [msgBox addButtonWithTitle: @"No"]; [msgBox addButtonWithTitle:@"Yes"];
+        [msgBox setMessageText: NSLocalizedString(@"The tape is recording!", @"msgbox")];
+        [msgBox setInformativeText:NSLocalizedString(@"The tape is recording. Are you sure you want to quit? This will stop playback.",@"Msgbox")];
+        [msgBox addButtonWithTitle: NSLocalizedString(@"No",@"Msgbox")]; [msgBox addButtonWithTitle:NSLocalizedString(@"Yes",@"Msgbox")];
         if ([msgBox runModal] == NSAlertSecondButtonReturn) {
             return NSTerminateNow;
         } else return NSTerminateCancel;
@@ -291,10 +317,9 @@ NSDate *trkstart;
     {
         if (files.count > 0) {
             NSAlert* msgBox = [[NSAlert alloc] init] ;
-            [msgBox setMessageText: @"Open project?"];
-            [msgBox setInformativeText:@"This will clear the current project!"];
-            [msgBox addButtonWithTitle: @"No"];
-            [msgBox addButtonWithTitle:@"Yes"];
+            [msgBox setMessageText: NSLocalizedString(@"Open project?", @"Msgbox")];
+            [msgBox setInformativeText:NSLocalizedString(@"This will clear the current project!", @"Msgbox")];
+            [msgBox addButtonWithTitle: NSLocalizedString(@"No",@"Msgbox")]; [msgBox addButtonWithTitle:NSLocalizedString(@"Yes",@"Msgbox")];
             if ([msgBox runModal] == NSAlertSecondButtonReturn) {
                 [files removeAllObjects];
                 [self.filetable reloadData];
@@ -316,10 +341,9 @@ NSDate *trkstart;
 - (IBAction)newProject:(id)sender {
     if (isRecording) return;
     NSAlert* msgBox = [[NSAlert alloc] init] ;
-    [msgBox setMessageText: @"New project?"];
-    [msgBox setInformativeText:@"This will clear the current project!"];
-    [msgBox addButtonWithTitle: @"No"];
-    [msgBox addButtonWithTitle:@"Yes"];
+    [msgBox setMessageText: NSLocalizedString(@"New project?", @"Msgbox")];
+    [msgBox setInformativeText:NSLocalizedString(@"This will clear the current project!", @"Msgbox")];
+    [msgBox addButtonWithTitle: NSLocalizedString(@"No",@"Msgbox")]; [msgBox addButtonWithTitle:NSLocalizedString(@"Yes",@"Msgbox")];
     if ([msgBox runModal] == NSAlertSecondButtonReturn) {
         [files removeAllObjects];
         [self.filetable reloadData];
@@ -417,12 +441,12 @@ NSDate *trkstart;
     } else  if ([[[tableColumn headerCell]title]isEqualToString:@"Duration"] ) {
         return t.durStr;
     } else  if ([[[tableColumn headerCell]title]isEqualToString:@"Side"] ) {
-        return (t.predictedSide == SideA ? @"Side A" : @"Side B");
+        return (t.predictedSide == SideA ? NSLocalizedString(@"Side A", @"Table") : NSLocalizedString(@"Side B", @"Table"));
     } else {
         if (isPreviewing && previewCur == row) {
-            return @"Pre";
+            return NSLocalizedString(@"P→",@"Indicator Preview");
         }
-        return (currentIdx == row ? @"→" : @"");
+        return (currentIdx == row ? NSLocalizedString(@"R→",@"Indicator Record") : @"");
     }
     return @"";
 }
@@ -464,8 +488,7 @@ NSDate *trkstart;
 
 }
 - (IBAction)eqchange:(id)sender {
-#warning TOFIX when adding per-track eq
-    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[self eqBandsGlobal]];
+    [self _eqUpd];
 }
 
 - (IBAction)transportComChg:(id)sender {
@@ -489,8 +512,7 @@ NSDate *trkstart;
             [slide setFloatValue:0.0f];
         }
     }
-#warning TOFIX when adding per-track eq
-    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[self eqBandsGlobal]];
+    [self _eqUpd];
 }
 
 - (NSArray*) eqBandsGlobal {
@@ -510,15 +532,32 @@ NSDate *trkstart;
             [slide setFloatValue:[vals[slide.tag] floatValue]];
         }
     }
-#warning TOFIX when adding per-track eq
-    [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[self eqBandsGlobal]];
+    [self _eqUpd];
 }
-
+- (void) _eqUpd {
+    if (isPreviewing) {
+        AITapeTrack *tt = files[previewCur];
+        [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[tt equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+        [[AIAudioOutputPlayer sharedAudioFilePlayer] setVol:tt.level];
+    } else if(isRecording) {
+        AITapeTrack*t  = files[currentIdx];
+        [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[t equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+        [[AIAudioOutputPlayer sharedAudioFilePlayer] setVol:t.level];
+    } else {
+        [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[self eqBandsGlobal]];
+        [[AIAudioOutputPlayer sharedAudioFilePlayer] setVol:1.0f];
+    }
+}
 NSInteger previewCur;
 bool isPreviewing, isRecording;
 - (IBAction)previewPrev:(id)sender {
     if(!isPreviewing || isRecording) return;
     [[AIAudioOutputPlayer sharedAudioFilePlayer] stop];
+    
+    AITapeTrack *ot = (AITapeTrack*)files[previewCur];
+    [ot removeObserver:self forKeyPath:@"equalizer"];
+    [ot removeObserver:self forKeyPath:@"level"];
+    
     previewCur--;
     while( (! ((AITapeTrack*)files[previewCur]).url) && previewCur >=0) {
         previewCur--;
@@ -533,13 +572,25 @@ bool isPreviewing, isRecording;
     }
     AITapeTrack *tt =  (AITapeTrack*)files[previewCur];
     [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[tt equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setVol:tt.level];
+    
+    [tt addObserver:self forKeyPath:@"equalizer" options:0 context:NULL];
+    [tt addObserver:self forKeyPath:@"level" options:0 context:NULL];
+    
     [[AIAudioOutputPlayer sharedAudioFilePlayer] playURL: tt.url];
     [self.filetable reloadData];
 }
-
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    [self _eqUpd];
+}
 - (IBAction)previewNext:(id)sender {
      if(!isPreviewing || isRecording) return;
      [[AIAudioOutputPlayer sharedAudioFilePlayer] stop];
+    
+    AITapeTrack *ot = (AITapeTrack*)files[previewCur];
+    [ot removeObserver:self forKeyPath:@"equalizer"];
+    [ot removeObserver:self forKeyPath:@"level"];
+    
     previewCur++;
     while((!((AITapeTrack*)files[previewCur]).url) && !(previewCur >= files.count)) {
         previewCur++;
@@ -554,11 +605,19 @@ bool isPreviewing, isRecording;
     }
     AITapeTrack *tt =  (AITapeTrack*)files[previewCur];
     [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[tt equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setVol:tt.level];
+    
+    [tt addObserver:self forKeyPath:@"equalizer" options:0 context:NULL];
+    [tt addObserver:self forKeyPath:@"level" options:0 context:NULL];
+    
     [[AIAudioOutputPlayer sharedAudioFilePlayer] playURL: tt.url];
     [self.filetable reloadData];
 }
 - (IBAction)previewStop:(id)sender {
     if(!isPreviewing || isRecording) return;
+    AITapeTrack *ot = (AITapeTrack*)files[previewCur];
+    [ot removeObserver:self forKeyPath:@"equalizer"];
+    [ot removeObserver:self forKeyPath:@"level"];
     isPreviewing = false;
     [[AIAudioOutputPlayer sharedAudioFilePlayer] stop];
     previewCur = 0;
@@ -577,6 +636,11 @@ bool isPreviewing, isRecording;
     }
     AITapeTrack *tt =  (AITapeTrack*)files[previewCur];
     [[AIAudioOutputPlayer sharedAudioFilePlayer] setEQFromArray:[tt equalizationWithApplyingGlobalValues:[self eqBandsGlobal]]];
+    [[AIAudioOutputPlayer sharedAudioFilePlayer] setVol:tt.level];
+    
+    [tt addObserver:self forKeyPath:@"equalizer" options:0 context:NULL];
+    [tt addObserver:self forKeyPath:@"level" options:0 context:NULL];
+    
     [[AIAudioOutputPlayer sharedAudioFilePlayer] playURL: tt.url];
     [self.filetable reloadData];
 }
@@ -592,10 +656,10 @@ bool isPreviewing, isRecording;
     {
         if (files.count > 0) {
             NSAlert* msgBox = [[NSAlert alloc] init] ;
-            [msgBox setMessageText: @"Open tape master?"];
-            [msgBox setInformativeText:@"This will clear the current project!"];
-            [msgBox addButtonWithTitle: @"No"];
-            [msgBox addButtonWithTitle:@"Yes"];
+            [msgBox setMessageText: NSLocalizedString(@"Open tape master?",@"MSGBOX")];
+            [msgBox setInformativeText:NSLocalizedString(@"This will clear the current project!",@"Msgbox")];
+            [msgBox addButtonWithTitle: NSLocalizedString(@"No",@"Msgbox")];
+            [msgBox addButtonWithTitle: NSLocalizedString(@"Yes",@"Msgbox")];
             if ([msgBox runModal] == NSAlertSecondButtonReturn) {
                 [files removeAllObjects];
                 [self.filetable reloadData];
@@ -608,7 +672,7 @@ bool isPreviewing, isRecording;
         [dir setCanChooseFiles:false];
         [dir setCanChooseDirectories:true];
         [dir setAllowsMultipleSelection:false];
-        [dir setTitle:@"Select extraction folder"];
+        [dir setTitle:NSLocalizedString(@"Select extraction folder", @"Msgbox")];
         if ([dir runModal] == NSOKButton)
         {
             NSURL *dest = [dir URL];

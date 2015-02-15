@@ -14,6 +14,7 @@
 #include "AIAudioOutputPlayer.h"
 #import "AIReelRecorder.h"
 #import <CoreAudio/CoreAudio.h>
+#import "AIInspectorWindow.h"
 @interface AIAppDelegate : NSObject <NSApplicationDelegate, AVAudioPlayerDelegate, NSTableViewDataSource, NSTableViewDelegate>
 {
     NSMutableArray* files;
@@ -25,6 +26,7 @@
     AKPioneerTapeRecorder* deck;
     AudioDeviceList	*				mOutputDeviceList;
     AudioDeviceID					outputDevice;
+    AIInspectorWindow *insp;
 }
 - (IBAction)unpackTape:(id)sender;
 @property (weak) IBOutlet NSPopUpButton *outSel;

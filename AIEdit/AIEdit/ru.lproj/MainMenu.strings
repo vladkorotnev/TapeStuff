@@ -1,0 +1,337 @@
+
+/* Class = "NSMenuItem"; title = "Bring All to Front"; ObjectID = "5"; */
+"5.title" = "Показать все";
+
+/* Class = "NSMenuItem"; title = "Window"; ObjectID = "19"; */
+"19.title" = "Окно";
+
+/* Class = "NSMenuItem"; title = "Minimize"; ObjectID = "23"; */
+"23.title" = "Свернуть";
+
+/* Class = "NSMenu"; title = "Window"; ObjectID = "24"; */
+"24.title" = "Окно";
+
+/* Class = "NSMenu"; title = "AMainMenu"; ObjectID = "29"; */
+"29.title" = "AMainMenu";
+
+/* Class = "NSMenuItem"; title = "AIEdit2"; ObjectID = "56"; */
+"56.title" = "AIEdit2";
+
+/* Class = "NSMenu"; title = "AIEdit2"; ObjectID = "57"; */
+"57.title" = "AIEdit2";
+
+/* Class = "NSMenuItem"; title = "About AIEdit"; ObjectID = "58"; */
+"58.title" = "О программе AIEdit";
+
+/* Class = "NSMenuItem"; title = "Open project…"; ObjectID = "72"; */
+"72.title" = "Открыть проект…";
+
+/* Class = "NSMenuItem"; title = "Save project…"; ObjectID = "75"; */
+"75.title" = "Сохранить проект…";
+
+/* Class = "NSMenu"; title = "Project"; ObjectID = "81"; */
+"81.title" = "Проект";
+
+/* Class = "NSMenuItem"; title = "New"; ObjectID = "82"; */
+"82.title" = "Создать";
+
+/* Class = "NSMenuItem"; title = "Project"; ObjectID = "83"; */
+"83.title" = "Проект";
+
+/* Class = "NSMenuItem"; title = "Preferences…"; ObjectID = "129"; */
+"129.title" = "Настройки…";
+
+/* Class = "NSMenuItem"; title = "Hide AIEdit"; ObjectID = "134"; */
+"134.title" = "Скрыть AIEdit";
+
+/* Class = "NSMenuItem"; title = "Quit AIEdit"; ObjectID = "136"; */
+"136.title" = "Завершить AIEdit";
+
+
+/* Class = "NSButtonCell"; title = "Pause"; ObjectID = "0YV-Ie-Db7"; */
+"0YV-Ie-Db7.title" = "Пауза";
+
+/* Class = "NSMenuItem"; title = "Pause"; ObjectID = "1Kq-fo-IH9"; */
+"1Kq-fo-IH9.title" = "Пауза";
+
+/* Class = "NSTextFieldCell"; title = "256"; ObjectID = "2G0-tc-u4X"; */
+"2G0-tc-u4X.title" = "256";
+
+/* Class = "NSTextFieldCell"; title = "A"; ObjectID = "2SA-hX-7F4"; */
+"2SA-hX-7F4.title" = "A";
+
+/* Class = "NSMenuItem"; title = "Power"; ObjectID = "2Y9-dD-5Cz"; */
+"2Y9-dD-5Cz.title" = "Вкл/выкл";
+
+/* Class = "NSTextFieldCell"; title = "2"; ObjectID = "3tK-60-rBD"; */
+"3tK-60-rBD.title" = "2";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "4Tf-i3-k1Y"; */
+"4Tf-i3-k1Y.title" = "Box";
+
+/* Class = "NSButtonCell"; title = "Fwd"; ObjectID = "68z-Mx-RZM"; */
+"68z-Mx-RZM.title" = ">>";
+
+/* Class = "NSButtonCell"; title = ">>"; ObjectID = "6W7-ek-Z0f"; */
+"6W7-ek-Z0f.title" = ">>";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "6vs-OV-lWp"; */
+"6vs-OV-lWp.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "Pwr"; ObjectID = "7rE-pI-yYe"; */
+"7rE-pI-yYe.title" = "Вкл";
+
+/* Class = "NSMenu"; title = "Music"; ObjectID = "86X-Gf-htI"; */
+"86X-Gf-htI.title" = "Музыка";
+
+/* Class = "NSMenuItem"; title = "4 seconds"; ObjectID = "8td-SI-Hzv"; */
+"8td-SI-Hzv.title" = "4 секунды";
+
+/* Class = "NSMenuItem"; title = "Forward"; ObjectID = "A9d-oq-Zn3"; */
+"A9d-oq-Zn3.title" = "Вперед";
+
+/* Class = "NSMenuItem"; title = "2 seconds"; ObjectID = "Ayk-S0-3i5"; */
+"Ayk-S0-3i5.title" = "2 секунды";
+
+/* Class = "NSMenuItem"; title = "Gap"; ObjectID = "BUW-OU-cBx"; */
+"BUW-OU-cBx.title" = "Зазор";
+
+/* Class = "NSMenuItem"; title = "Music"; ObjectID = "E87-WG-FSa"; */
+"E87-WG-FSa.title" = "Музыка";
+
+/* Class = "NSTextFieldCell"; title = "64"; ObjectID = "ENq-2N-a17"; */
+"ENq-2N-a17.title" = "64";
+
+/* Class = "NSTextFieldCell"; title = "4.1"; ObjectID = "F4t-bq-9ka"; */
+"F4t-bq-9ka.title" = "4.1";
+
+/* Class = "NSTableColumn"; headerCell.title = "Side"; ObjectID = "FFx-Lw-7UD"; */
+"FFx-Lw-7UD.headerCell.title" = "Side";
+
+/* Class = "NSTextFieldCell"; title = "-00:45:00"; ObjectID = "FWs-OT-xqx"; */
+"FWs-OT-xqx.title" = "-00:45:00";
+
+/* Class = "NSTableColumn"; headerCell.title = "Duration"; ObjectID = "G5z-d4-k2O"; */
+"G5z-d4-k2O.headerCell.title" = "Duration";
+
+/* Class = "NSButtonCell"; title = "Play"; ObjectID = "HIY-Ap-oiK"; */
+"HIY-Ap-oiK.title" = "Воспр";
+
+/* Class = "NSTextFieldCell"; title = "128"; ObjectID = "If3-fR-k9v"; */
+"If3-fR-k9v.title" = "128";
+
+/* Class = "NSMenuItem"; title = "Add..."; ObjectID = "KhX-M6-X5f"; */
+"KhX-M6-X5f.title" = "Добавить...";
+
+/* Class = "NSBox"; title = "Recording"; ObjectID = "LVI-H4-hUh"; */
+"LVI-H4-hUh.title" = "Запись";
+
+/* Class = "NSMenuItem"; title = "Record"; ObjectID = "N9a-zf-aco"; */
+"N9a-zf-aco.title" = "Запись";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "NPv-o6-QDh"; */
+"NPv-o6-QDh.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; placeholderString = "90"; ObjectID = "Nfg-5m-Fa5"; */
+"Nfg-5m-Fa5.placeholderString" = "90";
+
+/* Class = "NSTextFieldCell"; title = "90"; ObjectID = "Nfg-5m-Fa5"; */
+"Nfg-5m-Fa5.title" = "90";
+
+/* Class = "NSTextFieldCell"; title = "COM:"; ObjectID = "Nv7-DJ-Bgc"; */
+"Nv7-DJ-Bgc.title" = "Порт:";
+
+/* Class = "NSMenu"; title = "Transport"; ObjectID = "OJV-nU-8qX"; */
+"OJV-nU-8qX.title" = "Транспорт";
+
+/* Class = "NSMenuItem"; title = "Master"; ObjectID = "Oi2-rD-D64"; */
+"Oi2-rD-D64.title" = "Лента";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "PO5-PR-Arv"; */
+"PO5-PR-Arv.title" = "Text Cell";
+
+/* Class = "NSButtonCell"; title = "5s lead in"; ObjectID = "POn-83-fIg"; */
+"POn-83-fIg.title" = "5сек пре-запись";
+
+/* Class = "NSButtonCell"; title = "Start B"; ObjectID = "Pc5-03-wEc"; */
+"Pc5-03-wEc.title" = "Сторона Б";
+
+/* Class = "NSMenuItem"; title = "Nothing"; ObjectID = "Rl5-qp-M4E"; */
+"Rl5-qp-M4E.title" = "Бездействие";
+
+/* Class = "NSTextFieldCell"; title = "32Hz"; ObjectID = "SgW-hN-lFI"; */
+"SgW-hN-lFI.title" = "32Гц";
+
+/* Class = "NSMenuItem"; title = "Unpack tape master"; ObjectID = "Sr7-9k-SII"; */
+"Sr7-9k-SII.title" = "Распаковать ленту (.reel)";
+
+/* Class = "NSButtonCell"; title = "Add with 3s gaps"; ObjectID = "TPN-7s-O22"; */
+"TPN-7s-O22.title" = "Добавлять 3с зазор";
+
+/* Class = "NSButtonCell"; title = "Gap 5s"; ObjectID = "V3W-gQ-oUw"; */
+"V3W-gQ-oUw.title" = "5 сек";
+
+/* Class = "NSTextFieldCell"; title = "8.2"; ObjectID = "W69-4U-Rn4"; */
+"W69-4U-Rn4.title" = "8.2";
+
+/* Class = "NSMenuItem"; title = "5 seconds"; ObjectID = "Wh8-CC-pcx"; */
+"Wh8-CC-pcx.title" = "5 секунд";
+
+/* Class = "NSTextFieldCell"; title = "512"; ObjectID = "YbN-1V-6ap"; */
+"YbN-1V-6ap.title" = "512";
+
+/* Class = "NSMenu"; title = "Gap"; ObjectID = "ZF8-Zg-rHi"; */
+"ZF8-Zg-rHi.title" = "Зазор";
+
+/* Class = "NSMenuItem"; title = "Pause"; ObjectID = "Zit-GN-Tia"; */
+"Zit-GN-Tia.title" = "Пауза";
+
+/* Class = "NSMenuItem"; title = "Stop"; ObjectID = "bOf-3t-PjZ"; */
+"bOf-3t-PjZ.title" = "Стоп";
+
+/* Class = "NSTextFieldCell"; title = "AIEdit2 is processing the tape master, please wait..."; ObjectID = "bVC-I9-lXg"; */
+"bVC-I9-lXg.title" = "AIEdit2 обрабатывает ленту, пожалуйста, подождите...";
+
+/* Class = "NSBox"; title = "Tape properties"; ObjectID = "bX0-2i-yuQ"; */
+"bX0-2i-yuQ.title" = "Свойства кассеты";
+
+/* Class = "NSButtonCell"; title = "Play"; ObjectID = "bYb-c0-hsw"; */
+"bYb-c0-hsw.title" = "Воспр";
+
+/* Class = "NSButtonCell"; title = "Gap 3s"; ObjectID = "dCR-sI-Cwg"; */
+"dCR-sI-Cwg.title" = "3 сек";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Make all points 0dB"; ObjectID = "dMv-s2-okD"; */
+"dMv-s2-okD.ibShadowedToolTip" = "Сброс в 0";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "dfu-v5-u5y"; */
+"dfu-v5-u5y.title" = "OtherViews";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "COM port of the Transboard"; ObjectID = "dtv-LA-WIC"; */
+"dtv-LA-WIC.ibShadowedToolTip" = "COM-порт контроллера";
+
+/* Class = "NSBox"; title = "Preview"; ObjectID = "e8h-sY-gsz"; */
+"e8h-sY-gsz.title" = "Прослушать";
+
+/* Class = "NSButtonCell"; title = "Gap 1s"; ObjectID = "e8w-Lo-0cX"; */
+"e8w-Lo-0cX.title" = "1 сек";
+
+/* Class = "NSPopUpButton"; ibShadowedToolTip = "Action to do when the current side is completed"; ObjectID = "eCG-jX-Jvs"; */
+"eCG-jX-Jvs.ibShadowedToolTip" = "Что делать, когда текущая сторона кончилась";
+
+/* Class = "NSTextFieldCell"; title = "AIEdit 2"; ObjectID = "egX-Gx-tTs"; */
+"egX-Gx-tTs.title" = "AIEdit 2";
+
+/* Class = "NSButtonCell"; title = "RecP"; ObjectID = "emO-Oj-6tA"; */
+"emO-Oj-6tA.title" = "ЗапВос";
+
+/* Class = "NSButtonCell"; title = "Stop"; ObjectID = "fNX-BM-4j6"; */
+"fNX-BM-4j6.title" = "Стоп";
+
+/* Class = "NSButtonCell"; title = "Rew"; ObjectID = "g0C-Dq-Rmh"; */
+"g0C-Dq-Rmh.title" = "Наз";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "g8A-SB-bns"; */
+"g8A-SB-bns.title" = "Text Cell";
+
+/* Class = "NSPanel"; title = "Window"; ObjectID = "gH3-1b-GdJ"; */
+"gH3-1b-GdJ.title" = "Window";
+
+/* Class = "NSMenuItem"; title = "Select control port"; ObjectID = "gJn-sy-7af"; */
+"gJn-sy-7af.title" = "Выберите порт";
+
+/* Class = "NSMenuItem"; title = "Rewind"; ObjectID = "huI-Vn-j1Y"; */
+"huI-Vn-j1Y.title" = "Назад";
+
+/* Class = "NSBox"; title = "EQ"; ObjectID = "jdR-9F-pfe"; */
+"jdR-9F-pfe.title" = "Эквалайзер";
+
+/* Class = "NSTextFieldCell"; title = "B"; ObjectID = "lMI-rN-eNg"; */
+"lMI-rN-eNg.title" = "Б";
+
+/* Class = "NSButtonCell"; title = "Stop"; ObjectID = "mhP-ou-IjN"; */
+"mhP-ou-IjN.title" = "Стоп";
+
+/* Class = "NSTextFieldCell"; title = "1k"; ObjectID = "nFR-zK-Rpd"; */
+"nFR-zK-Rpd.title" = "1к";
+
+/* Class = "NSTableColumn"; headerCell.title = "File"; ObjectID = "nQM-Ex-3DK"; */
+"nQM-Ex-3DK.headerCell.title" = "File";
+
+/* Class = "NSMenuItem"; title = "Play"; ObjectID = "ntI-hz-Sre"; */
+"ntI-hz-Sre.title" = "Воспр";
+
+/* Class = "NSMenuItem"; title = "Rewind"; ObjectID = "oOn-md-0hm"; */
+"oOn-md-0hm.title" = "Назад";
+
+/* Class = "NSTextFieldCell"; title = "Enter tape length:"; ObjectID = "ol8-2z-oLc"; */
+"ol8-2z-oLc.title" = "Введите длину ленты:";
+
+/* Class = "NSButtonCell"; title = "Auto deck control"; ObjectID = "oxk-Cr-bSB"; */
+"oxk-Cr-bSB.title" = "Управлять магнитофоном";
+
+/* Class = "NSMenuItem"; title = "1 second"; ObjectID = "pdE-iG-SDq"; */
+"pdE-iG-SDq.title" = "1 секунда";
+
+/* Class = "NSMenuItem"; title = "Remove selected"; ObjectID = "qZR-ZX-dks"; */
+"qZR-ZX-dks.title" = "Убрать выбранное";
+
+/* Class = "NSTextFieldCell"; title = "min."; ObjectID = "qjp-IJ-4K8"; */
+"qjp-IJ-4K8.title" = "мин.";
+
+/* Class = "NSMenuItem"; title = "Transport"; ObjectID = "qmi-3H-xQx"; */
+"qmi-3H-xQx.title" = "Магнитофон";
+
+/* Class = "NSTextFieldCell"; title = "Fill Meter"; ObjectID = "r1I-nx-xiF"; */
+"r1I-nx-xiF.title" = "Заполнение";
+
+/* Class = "NSMenuItem"; title = "Forward"; ObjectID = "r8u-cC-DVO"; */
+"r8u-cC-DVO.title" = "Вперед";
+
+/* Class = "NSButtonCell"; ibShadowedToolTip = "Make all points ≤ 0dB"; ObjectID = "rUQ-kN-DWc"; */
+"rUQ-kN-DWc.ibShadowedToolTip" = "Уложить всё ≤ 0dB";
+
+/* Class = "NSButtonCell"; title = "L"; ObjectID = "rUQ-kN-DWc"; */
+"rUQ-kN-DWc.title" = "У";
+
+/* Class = "NSTextFieldCell"; title = "-00:45:00"; ObjectID = "rxC-5E-ZXX"; */
+"rxC-5E-ZXX.title" = "-00:45:00";
+
+/* Class = "NSBox"; title = "Transport"; ObjectID = "s4H-7Y-5hW"; */
+"s4H-7Y-5hW.title" = "Магнитофон";
+
+/* Class = "NSButtonCell"; title = "Rec"; ObjectID = "sUX-0T-Eoc"; */
+"sUX-0T-Eoc.title" = "Зап";
+
+/* Class = "NSMenu"; title = "Master"; ObjectID = "sjV-b8-9FG"; */
+"sjV-b8-9FG.title" = "Лента";
+
+/* Class = "NSBox"; title = "Output"; ObjectID = "slG-da-hLz"; */
+"slG-da-hLz.title" = "Аудиовыход";
+
+/* Class = "NSButtonCell"; title = "Start A"; ObjectID = "tMY-z5-gt6"; */
+"tMY-z5-gt6.title" = "Сторона A";
+
+/* Class = "NSMenuItem"; title = "3 seconds"; ObjectID = "tpX-vp-Ycc"; */
+"tpX-vp-Ycc.title" = "3 секунды";
+
+/* Class = "NSMenuItem"; title = "Pack tape master"; ObjectID = "u2q-9s-r93"; */
+"u2q-9s-r93.title" = "Создать ленту";
+
+/* Class = "NSMenu"; title = "OtherViews"; ObjectID = "uLw-mK-7oQ"; */
+"uLw-mK-7oQ.title" = "OtherViews";
+
+/* Class = "NSTextFieldCell"; title = "Your one-stop tape mastering solution!"; ObjectID = "wKe-cP-Xh2"; */
+"wKe-cP-Xh2.title" = "Ваш главный инструмент для записи кассет";
+
+/* Class = "NSTextFieldCell"; title = "16.4"; ObjectID = "ymF-I1-qtk"; */
+"ymF-I1-qtk.title" = "16.4";
+
+/* Class = "NSTextFieldCell"; title = "On side done:"; ObjectID = "ysN-dI-fTS"; */
+"ysN-dI-fTS.title" = "Когда завершено:";
+
+/* Class = "NSButtonCell"; title = "0"; ObjectID = "z3n-hy-3Hf"; */
+"z3n-hy-3Hf.title" = "0";
+
+/* Class = "NSButtonCell"; title = "<<"; ObjectID = "zFg-Vv-9eY"; */
+"zFg-Vv-9eY.title" = "<<";

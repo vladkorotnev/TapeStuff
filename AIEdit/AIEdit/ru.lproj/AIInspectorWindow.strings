@@ -1,0 +1,66 @@
+
+/* Class = "NSTextFieldCell"; title = "8.2"; ObjectID = "1iB-Jv-Gxn"; */
+"1iB-Jv-Gxn.title" = "8.2";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Make all points 0dB"; ObjectID = "4AL-yc-sFF"; */
+"4AL-yc-sFF.ibShadowedToolTip" = "Выставить все в 0дБ";
+
+/* Class = "NSTextFieldCell"; title = "4.1"; ObjectID = "4qj-At-9u9"; */
+"4qj-At-9u9.title" = "4.1";
+
+/* Class = "NSTextFieldCell"; title = "1k"; ObjectID = "9P5-dC-AXX"; */
+"9P5-dC-AXX.title" = "1к";
+
+/* Class = "NSButtonCell"; title = "0"; ObjectID = "ASI-B5-ZOX"; */
+"ASI-B5-ZOX.title" = "0";
+
+/* Class = "NSTextFieldCell"; title = "16.4"; ObjectID = "BzS-Q8-YGL"; */
+"BzS-Q8-YGL.title" = "16.4";
+
+/* Class = "NSPanel"; title = "Inspector"; ObjectID = "EOH-sb-R6n"; */
+"EOH-sb-R6n.title" = "Инспектор";
+
+/* Class = "NSTextFieldCell"; title = "256"; ObjectID = "HRt-Yw-SKK"; */
+"HRt-Yw-SKK.title" = "256";
+
+/* Class = "NSButtonCell"; title = "0"; ObjectID = "JGp-aK-Hkc"; */
+"JGp-aK-Hkc.title" = "0";
+
+/* Class = "NSTextFieldCell"; title = "128"; ObjectID = "JfM-Ja-dtW"; */
+"JfM-Ja-dtW.title" = "128";
+
+/* Class = "NSTextFieldCell"; title = "512"; ObjectID = "Sb1-Xa-W29"; */
+"Sb1-Xa-W29.title" = "512";
+
+/* Class = "NSTextFieldCell"; title = "My FileMy FileMy FileMy FileMy FileMy FileMy FileMy File.m4a"; ObjectID = "WvA-Mr-aB6"; */
+"WvA-Mr-aB6.title" = "My FileMy FileMy FileMy FileMy FileMy FileMy FileMy File.m4a";
+
+/* Class = "NSTextFieldCell"; title = "64"; ObjectID = "e1X-xo-omV"; */
+"e1X-xo-omV.title" = "64";
+
+/* Class = "NSBox"; title = "Level"; ObjectID = "eKP-W5-BOn"; */
+"eKP-W5-BOn.title" = "Уровень";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "gYR-by-5d1"; */
+"gYR-by-5d1.title" = "Box";
+
+/* Class = "NSTextFieldCell"; title = "32Hz"; ObjectID = "kTu-op-ihb"; */
+"kTu-op-ihb.title" = "32Гц";
+
+/* Class = "NSBox"; title = "EQ"; ObjectID = "m9p-Pt-TGN"; */
+"m9p-Pt-TGN.title" = "Эквалайзер";
+
+/* Class = "NSButtonCell"; ibShadowedToolTip = "Make all points ≤ 0dB"; ObjectID = "slS-Vt-mKd"; */
+"slS-Vt-mKd.ibShadowedToolTip" = "Уравнять всё ниже ≤ 0dB";
+
+/* Class = "NSButtonCell"; title = "L"; ObjectID = "slS-Vt-mKd"; */
+"slS-Vt-mKd.title" = "У";
+
+/* Class = "NSTextFieldCell"; title = "2"; ObjectID = "x5a-sb-2Y1"; */
+"x5a-sb-2Y1.title" = "2";
+
+/* Class = "NSBox"; title = "Box"; ObjectID = "yTc-qz-7wH"; */
+"yTc-qz-7wH.title" = "Box";
+
+/* Class = "NSButton"; ibShadowedToolTip = "Make all points 0dB"; ObjectID = "yx5-CX-lYW"; */
+"yx5-CX-lYW.ibShadowedToolTip" = "Выставить всё в 0 0dB";
