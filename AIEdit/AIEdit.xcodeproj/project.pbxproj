@@ -145,17 +145,7 @@
 		826647DA197289DB00E30C60 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		829933731A905EC200259804 /* AIInspectorWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIInspectorWindow.h; sourceTree = "<group>"; };
 		829933741A905EC200259804 /* AIInspectorWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIInspectorWindow.m; sourceTree = "<group>"; };
-		829933791A9072A700259804 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		8299337A1A9072A700259804 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8299337B1A9072A700259804 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ru; path = ru.lproj/Credits.rtf; sourceTree = "<group>"; };
-		8299337C1A9072A700259804 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8299337D1A9072AC00259804 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/MainMenu.strings; sourceTree = "<group>"; };
-		8299337E1A9072AC00259804 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		8299337F1A9072AC00259804 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = ja; path = ja.lproj/Credits.rtf; sourceTree = "<group>"; };
-		829933801A9072AC00259804 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		829933821A9073A500259804 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AIInspectorWindow.xib; sourceTree = "<group>"; };
-		829933871A9073AE00259804 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/AIInspectorWindow.strings; sourceTree = "<group>"; };
-		829933891A9073B200259804 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/AIInspectorWindow.strings; sourceTree = "<group>"; };
 		82B9C9EE1969374700FDF7AD /* tapedoc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tapedoc.png; sourceTree = "<group>"; };
 		82C2AD711901166B0085D2D4 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		82C2AD73190116720085D2D4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
@@ -400,8 +390,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ru,
-				ja,
 			);
 			mainGroup = 82296E1418F10AEB00328B27;
 			productRefGroup = 82296E1E18F10AEB00328B27 /* Products */;
@@ -491,8 +479,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				82296E2A18F10AEB00328B27 /* en */,
-				8299337A1A9072A700259804 /* ru */,
-				8299337E1A9072AC00259804 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -501,8 +487,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				82296E3018F10AEB00328B27 /* en */,
-				8299337B1A9072A700259804 /* ru */,
-				8299337F1A9072AC00259804 /* ja */,
 			);
 			name = Credits.rtf;
 			sourceTree = "<group>";
@@ -511,8 +495,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				82296E3618F10AEB00328B27 /* Base */,
-				829933791A9072A700259804 /* ru */,
-				8299337D1A9072AC00259804 /* ja */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -521,8 +503,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				82296E4818F10AEB00328B27 /* en */,
-				8299337C1A9072A700259804 /* ru */,
-				829933801A9072AC00259804 /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -531,8 +511,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				829933821A9073A500259804 /* Base */,
-				829933871A9073AE00259804 /* ru */,
-				829933891A9073B200259804 /* ja */,
 			);
 			name = AIInspectorWindow.xib;
 			sourceTree = "<group>";

@@ -70,7 +70,7 @@
       <CommandLineArguments>
          <CommandLineArgument
             argument = "-AppleLanguages &quot;(Russian)&quot;"
-            isEnabled = "YES">
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>

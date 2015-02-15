@@ -43,6 +43,7 @@
     [aCoder encodeObject:self.fname forKey:@"fname"];
     [aCoder encodeObject:self.equalizer forKey:@"equalizer"];
      [aCoder encodeObject:[NSNumber numberWithFloat:self.dur] forKey:@"duration"];
+    [aCoder encodeObject:[NSNumber numberWithFloat:self.level] forKey:@"level"];
 }
 - (id)initWithCoder:(NSCoder *)aDecoder {
     if(self = [super init]) {
@@ -68,9 +69,15 @@
         NSLog(@"Decoded %@ or %@",self.url, self.player);
         self.predictedSide = [[aDecoder decodeObjectForKey:@"side"]intValue];
         
-        
+        self.level = [[aDecoder decodeObjectForKey:@"level"]floatValue];
+        if (self.level == 0) {
+            self.level = 1; // for old format masters
+        }
         self.fname = [aDecoder decodeObjectForKey:@"fname"];
         self.equalizer = [[aDecoder decodeObjectForKey:@"equalizer"]mutableCopy];
+        if (!self.equalizer) {
+            self.equalizer = [@[@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f,@0.0f] mutableCopy];
+        }
     }
     return self;
 }
