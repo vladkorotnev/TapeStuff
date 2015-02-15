@@ -179,8 +179,16 @@ NSDate *trkstart;
     if (currentIdx >= 0 && currentIdx < files.count) {
         AITapeTrack *ot = (AITapeTrack*)files[currentIdx];
         if (ot) {
-            [ot removeObserver:self forKeyPath:@"equalizer"];
-            [ot removeObserver:self forKeyPath:@"level"];
+            @try {
+                [ot removeObserver:self forKeyPath:@"equalizer"];
+                [ot removeObserver:self forKeyPath:@"level"];
+            }
+            @catch (NSException *exception) {
+                
+            }
+            @finally {
+                
+            }
         }
     }
 
