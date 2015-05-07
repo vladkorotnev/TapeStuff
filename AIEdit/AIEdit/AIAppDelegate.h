@@ -15,6 +15,7 @@
 #import "AIReelRecorder.h"
 #import <CoreAudio/CoreAudio.h>
 #import "AIInspectorWindow.h"
+#define TMPDIR [NSTemporaryDirectory() stringByAppendingPathComponent:@"AIEditReelTMP"]
 @interface AIAppDelegate : NSObject <NSApplicationDelegate, AVAudioPlayerDelegate, NSTableViewDataSource, NSTableViewDelegate>
 {
     NSMutableArray* files;
@@ -28,6 +29,7 @@
     AudioDeviceID					outputDevice;
     AIInspectorWindow *insp;
 }
+- (IBAction)openReel:(id)sender;
 - (IBAction)unpackTape:(id)sender;
 @property (weak) IBOutlet NSPopUpButton *outSel;
 - (IBAction)outChange:(id)sender;

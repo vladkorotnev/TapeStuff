@@ -10,9 +10,18 @@
 #import "AVAudioGapPlayer.h"
 @implementation AIAppDelegate
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
+    // 
+    NSError *e;
+    if([[NSFileManager defaultManager]fileExistsAtPath:TMPDIR])
+        [[NSFileManager defaultManager]removeItemAtPath:TMPDIR error:nil];
+    
+    [[NSFileManager defaultManager]createDirectoryAtPath:TMPDIR withIntermediateDirectories:true attributes:@{} error:&e];
+    if (e) {
+        NSLog(@"Error making temp folder: %@", e.description);
+    }
     
     insp = [[AIInspectorWindow alloc]initWithWindowNibName:@"AIInspectorWindow"];
     files = [NSMutableArray new];
@@ -297,6 +306,7 @@ NSDate *trkstart;
         } else return NSTerminateCancel;
         return NSTerminateCancel;
     }
+    [[NSFileManager defaultManager]removeItemAtPath:TMPDIR error:nil];
     return NSTerminateNow;
 }
 - (IBAction)writeProject:(id)sender {
@@ -652,6 +662,46 @@ bool isPreviewing, isRecording;
     [[AIAudioOutputPlayer sharedAudioFilePlayer] playURL: tt.url];
     [self.filetable reloadData];
 }
+- (IBAction)openReel:(id)sender {
+    if (isRecording) return;
+    [self panel:self.masterProcPanel];
+    NSOpenPanel *openPanel = [[NSOpenPanel alloc] init];
+    [openPanel setCanChooseFiles:true];
+    [openPanel setCanChooseDirectories:false];
+    [openPanel setAllowsMultipleSelection:false];
+    [openPanel setAllowedFileTypes:[NSArray arrayWithObjects:@"reel", nil]];
+    if ([openPanel runModal] == NSOKButton)
+    {
+        if (files.count > 0) {
+            NSAlert* msgBox = [[NSAlert alloc] init] ;
+            [msgBox setMessageText: NSLocalizedString(@"Open tape master?",@"MSGBOX")];
+            [msgBox setInformativeText:NSLocalizedString(@"This will clear the current project!",@"Msgbox")];
+            [msgBox addButtonWithTitle: NSLocalizedString(@"No",@"Msgbox")];
+            [msgBox addButtonWithTitle: NSLocalizedString(@"Yes",@"Msgbox")];
+            if ([msgBox runModal] == NSAlertSecondButtonReturn) {
+                [files removeAllObjects];
+                [self.filetable reloadData];
+                precalcMinutes = 0;
+                [self _fillMeters];
+                [self.tapelen setStringValue:@"90"];
+            } else return;
+        }
+        {
+
+            NSDictionary* master = [[AIReelRecorder sharedInstance]openReelFromFile:[openPanel URL]];
+            [self.tapelen setStringValue:[NSString stringWithFormat:@"%i", [[master objectForKey:@"length"]intValue]]];
+            NSArray* list = [NSKeyedUnarchiver unarchiveObjectWithData:[master objectForKey:@"data"]];
+            files = [list mutableCopy];
+            
+            if(master[@"eq"]) [self writeEqBandsGlobal:master[@"eq"]];
+            [self.filetable reloadData];
+            [self _fillMeters];
+            
+        }
+    }
+    [self noPanel:self.masterProcPanel];
+}
+
 - (IBAction)unpackTape:(id)sender {
     if (isRecording) return;
     [self panel:self.masterProcPanel];

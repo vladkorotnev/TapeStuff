@@ -138,6 +138,10 @@
     [[NSWorkspace sharedWorkspace] setIcon:[NSImage imageNamed:@"tapedoc"] forFile:[folder URLByAppendingPathComponent:@"_project.tape"].path options:0];
     return project;
 }
+- (NSDictionary*) openReelFromFile:(NSURL*)file {
+    [[NSFileManager defaultManager]createDirectoryAtPath:[TMPDIR stringByAppendingPathComponent:file.lastPathComponent] withIntermediateDirectories:true attributes:nil error:nil];
+    return [self openReelFromFile:file extractedTo:[NSURL fileURLWithPath:[TMPDIR stringByAppendingPathComponent:file.lastPathComponent] isDirectory:true]];
+}
 - (void) createReel:(NSURL*)dest fromTracks:(NSArray*)tracks pData:(NSDictionary*)project {
     NSMutableDictionary* reel = [NSMutableDictionary new];
     NSMutableDictionary*p = [project mutableCopy];
