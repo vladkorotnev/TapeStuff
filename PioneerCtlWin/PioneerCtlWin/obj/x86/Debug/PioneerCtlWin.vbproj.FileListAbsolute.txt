@@ -1,0 +1,19 @@
+C:\Users\Vladislav\AppData\Local\Temporary Projects\PioneerCtlWin\bin\Debug\PioneerCtlWin.exe
+C:\Users\Vladislav\AppData\Local\Temporary Projects\PioneerCtlWin\bin\Debug\PioneerCtlWin.pdb
+C:\Users\Vladislav\AppData\Local\Temporary Projects\PioneerCtlWin\bin\Debug\PioneerCtlWin.xml
+C:\Users\Vladislav\AppData\Local\Temporary Projects\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.Form1.resources
+C:\Users\Vladislav\AppData\Local\Temporary Projects\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.Resources.resources
+C:\Users\Vladislav\AppData\Local\Temporary Projects\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.vbproj.GenerateResource.Cache
+C:\Users\Vladislav\AppData\Local\Temporary Projects\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.exe
+C:\Users\Vladislav\AppData\Local\Temporary Projects\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.xml
+C:\Users\Vladislav\AppData\Local\Temporary Projects\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.pdb
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.exe
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.xml
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.pdb
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\bin\Debug\PioneerCtlWin.exe.config
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\bin\Debug\PioneerCtlWin.exe
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\bin\Debug\PioneerCtlWin.pdb
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\bin\Debug\PioneerCtlWin.xml
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.Form1.resources
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.Resources.resources
+C:\Users\Vladislav\documents\visual studio 2010\Projects\PioneerCtlWin\PioneerCtlWin\obj\x86\Debug\PioneerCtlWin.vbproj.GenerateResource.Cache
