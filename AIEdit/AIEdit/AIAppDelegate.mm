@@ -400,7 +400,7 @@ NSDate *trkstart;
         [self.filetable reloadData];
         precalcMinutes = 0;
         [self _fillMeters];
-        [self.tapelen setStringValue:@"90"];
+        
         [self zeroEqGlobal:nil];
         // [self zeroEqSel:nil];
         return true;
@@ -409,6 +409,7 @@ NSDate *trkstart;
 }
 - (IBAction)newProject:(id)sender {
     [self _clearProject];
+    [self.tapelen setStringValue:@"90"];
 }
 
 - (void) _addFromAudioPlayer: (AVAudioPlayer*)p file:(NSURL*)file{
