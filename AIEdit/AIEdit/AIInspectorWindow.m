@@ -7,7 +7,7 @@
 //
 
 #import "AIInspectorWindow.h"
-
+#import "AVAudioGapPlayer.h"
 @interface AIInspectorWindow ()
 
 @end
@@ -23,23 +23,44 @@
     }
     return self;
 }
+- (void) _delegateMustReloadData {
+    if (self.delegate) {
+        if ([self.delegate respondsToSelector:@selector(AIInspectorDidChangeTrack)]) {
+            [self.delegate AIInspectorDidChangeTrack];
+        }
+    }
+}
 - (void) loadTrack:(AITapeTrack*)track {
     inspectedTrack = track;
     [self.fileName setStringValue:inspectedTrack.fname];
-    for (NSSlider*slide in [self.eqBox.subviews[0] subviews]) {
-        if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
-            [slide setFloatValue:[inspectedTrack.equalizer[slide.tag] floatValue]];
+    
+    NSRect frame = [self.window frame];
+    if ([inspectedTrack.player isKindOfClass:[AVAudioGapPlayer class]]) {
+        [self.durationBox setHidden:false];
+        [self.durationBox.animator setAlphaValue:1.0];
+        
+        [self.eqBox.animator setAlphaValue:0.0];
+        [self.eqBox.animator setHidden:true];
+        [self.durationField setStringValue:[NSString stringWithFormat:@"%.0f",inspectedTrack.dur]];
+        frame.size.height = 130;
+    } else {
+        [self.eqBox setHidden:false];
+        [self.eqBox.animator setAlphaValue:1.0];
+        
+        [self.durationBox.animator setAlphaValue:0.0];
+        [self.durationBox.animator setHidden:true];
+        frame.size.height = 270;
+        for (NSSlider*slide in [self.eqBox.subviews[0] subviews]) {
+            if([slide isKindOfClass:[NSSlider class]] && slide.tag < 111) {
+                [slide setFloatValue:[inspectedTrack.equalizer[slide.tag] floatValue]];
+            }
         }
+        [self.levelSlider setFloatValue:inspectedTrack.level];
     }
-    [self.levelSlider setFloatValue:inspectedTrack.level];
+ 
+    [self.window setFrame:frame display:true animate:true];
 }
-- (void)windowDidLoad
-{
-    [super windowDidLoad];
-    
-    
-    // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-}
+
 - (IBAction)lvlZero:(id)sender {
     self.levelSlider.floatValue = 1.0f;
     [self levelChange:self.levelSlider];
@@ -76,6 +97,7 @@
 }
 - (IBAction)levelChange:(id)sender {
     inspectedTrack.level = self.levelSlider.floatValue;
+    [self _delegateMustReloadData];
 }
 
 - (IBAction)eqChange:(id)sender {
@@ -85,5 +107,18 @@
         }
     }
     [inspectedTrack setEqualizer:inspectedTrack.equalizer]; // for KVO
+    [self _delegateMustReloadData];
+}
+- (IBAction)durationChanged:(id)sender {
+    if (![inspectedTrack.player isKindOfClass:[AVAudioGapPlayer class]]) {
+        return;
+    }
+    if ([[self.durationField stringValue]isEqualToString:@""]) {
+        return;
+    }
+    inspectedTrack.dur = [self.durationField floatValue];
+    inspectedTrack.durStr = [NSString stringWithTimeInterval:inspectedTrack.dur];
+    ((AVAudioGapPlayer*)inspectedTrack.player)->length = inspectedTrack.dur;
+    [self _delegateMustReloadData];
 }
 @end

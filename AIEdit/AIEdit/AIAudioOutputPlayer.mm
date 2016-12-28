@@ -26,10 +26,11 @@ void checkErr(OSStatus e, NSString *desc){
 
 
 @interface AIAudioOutputPlayer() {
-    CAAudioUnit playUnit, outUnit, eqUnit;
+    CAAudioUnit playUnit, outUnit, eqUnit, mixerUnit;
     bool graphCreated;
     AUGraph graph;
-    AUNode fileNode;  AUNode outputNode; AUNode eqNode;
+    AUNode fileNode;  AUNode outputNode; AUNode eqNode; AUNode mixerNode;
+    AudioUnit mixer;
     AudioFileID audioFile;
     AudioDevice mOutputDevice;
 }
@@ -55,6 +56,7 @@ static AIAudioOutputPlayer *_sharedAudioFilePlayer = nil;
         // connect & setup
         XThrowIfError (AUGraphOpen (graph), "AUGraphOpen");
         CAComponentDescription cd;
+        
         // output node
         cd.componentType = kAudioUnitType_Output;
         cd.componentSubType = kAudioUnitSubType_DefaultOutput;
@@ -65,6 +67,17 @@ static AIAudioOutputPlayer *_sharedAudioFilePlayer = nil;
         XThrowIfError (AUGraphNodeInfo(graph, outputNode, NULL, &anAU), "AUGraphNodeInfo");
         outUnit = CAAudioUnit(outputNode, anAU);
         
+        
+        cd.componentType          = kAudioUnitType_Mixer;
+        cd.componentSubType       = kAudioUnitSubType_StereoMixer;
+        cd.componentManufacturer  = kAudioUnitManufacturer_Apple;
+        cd.componentFlags         = 0;
+        cd.componentFlagsMask     = 0;
+        
+        XThrowIfError(AUGraphAddNode(graph, &cd, &mixerNode), "AUGraphNewNode failed for Mixer unit");
+        XThrowIfError(AUGraphNodeInfo(graph, mixerNode, NULL, &mixer), "AUGraphNodeInfo - mixer unit");
+        // allow mixer metering
+        
         cd.componentType = kAudioUnitType_Effect;
         cd.componentSubType = kAudioUnitSubType_GraphicEQ;
         XThrowIfError (AUGraphAddNode (graph, &cd, &eqNode), "AUGraphAddNode");
@@ -72,19 +85,44 @@ static AIAudioOutputPlayer *_sharedAudioFilePlayer = nil;
         eqUnit = CAAudioUnit(eqNode, anAU);
         XThrowIfError(AudioUnitInitialize(eqUnit), "init eq");
         XThrowIfError(AudioUnitSetParameter(anAU, 10000, kAudioUnitScope_Global, 0, 0.0, 0), "set eq bands"); //10b eq
+        
         // file AU node
         cd.componentType = kAudioUnitType_Generator;
         cd.componentSubType = kAudioUnitSubType_AudioFilePlayer;
         XThrowIfError (AUGraphAddNode (graph, &cd, &fileNode), "AUGraphAddNode");
+        
         // install overload listener to detect when something is wrong
         XThrowIfError (AUGraphNodeInfo(graph, fileNode, NULL, &anAU), "AUGraphNodeInfo");
+        
         playUnit = CAAudioUnit (fileNode, anAU);
         XThrowIfError (AUGraphConnectNodeInput (graph, fileNode, 0, eqNode, 0), "AUGraphConnectNodeInput");
-         XThrowIfError (AUGraphConnectNodeInput (graph, eqNode, 0, outputNode, 0), "AUGraphConnectNodeInput");
+         XThrowIfError (AUGraphConnectNodeInput (graph, eqNode, 0, mixerNode, 0), "AUGraphConnectNodeInput");
+        XThrowIfError(AUGraphConnectNodeInput(graph, mixerNode, 0, outputNode, 0), "AUGraphConnectNodeInput");
+        
+      
+
+        
         // AT this point we make sure we have the file player AU initialized
         // this also propogates the output format of the AU to the output unit
         XThrowIfError (AUGraphInitialize (graph), "AUGraphInitialize");
         
+        UInt32 allowMetering = 1;
+        OSStatus status;
+        
+         status = AudioUnitSetProperty(mixer,
+                                               kAudioUnitProperty_MeteringMode,
+                                               kAudioUnitScope_Global,
+                                               0,
+                                               &allowMetering,
+                                               sizeof(allowMetering));
+        XThrowIfError(status, "Allow metering");
+        status = AudioUnitSetProperty(mixer,
+                                      kAudioUnitProperty_MeteringMode,
+                                      kAudioUnitScope_Global,
+                                      1,
+                                      &allowMetering,
+                                      sizeof(allowMetering));
+        XThrowIfError(status, "Allow metering");
         
         CAShow(graph);
     }
@@ -314,6 +352,9 @@ static AIAudioOutputPlayer *_sharedAudioFilePlayer = nil;
     startTime.mSampleTime = -1;
     XThrowIfError (playUnit.SetProperty(kAudioUnitProperty_ScheduleStartTimeStamp,
                                         kAudioUnitScope_Global, 0, &startTime, sizeof(startTime)), "kAudioUnitProperty_ScheduleStartTimeStamp");
+    
+   
+    
     AUGraphStart(graph);
 }
 
@@ -325,10 +366,32 @@ static AIAudioOutputPlayer *_sharedAudioFilePlayer = nil;
     }
 }
 
+- (Float32) meterForChannel:(AudioUnitElement)channel {
+    AudioUnitParameterValue value = -120.0;
+    
+    OSStatus result = AudioUnitGetParameter(mixer,
+                                            kStereoMixerParam_PostAveragePower,
+                                            kAudioUnitScope_Output,
+                                            channel,
+                                            &value);
+    if(result != 0) printf("%f %ld %08X \n",value, (long)result, (unsigned int)result);
+    return value;
+}
 
+- (Float32)peakForChannel:(AudioUnitElement) channel {
+    AudioUnitParameterValue value = -120.0;
+    
+    OSStatus result = AudioUnitGetParameter(mixer,
+                                            kStereoMixerParam_PostPeakHoldLevel,
+                                            kAudioUnitScope_Output,
+                                            channel,
+                                            &value);
+    if(result != 0)printf("%f %ld %08X \n",value, (long)result, (unsigned int)result);
+    return value;
+}
 
 - (void) setVol:(float) vol {
-    AudioUnitSetParameter ( outUnit, kHALOutputParam_Volume, kAudioUnitScope_Output, 0, vol, 0);
+    AudioUnitSetParameter ( mixer, kStereoMixerParam_Volume, kAudioUnitScope_Output, 0, vol, 0);
 }
 
 

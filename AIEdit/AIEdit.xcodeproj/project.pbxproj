@@ -50,6 +50,12 @@
 		829933811A9073A500259804 /* AIInspectorWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 829933831A9073A500259804 /* AIInspectorWindow.xib */; };
 		82B9C9EF1969374700FDF7AD /* tapedoc.png in Resources */ = {isa = PBXBuildFile; fileRef = 82B9C9EE1969374700FDF7AD /* tapedoc.png */; };
 		82C2AD74190116720085D2D4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82C2AD73190116720085D2D4 /* IOKit.framework */; };
+		82CBAE831C31093200EEFDA2 /* AICategories.h in Headers */ = {isa = PBXBuildFile; fileRef = 82CBAE811C31093200EEFDA2 /* AICategories.h */; };
+		82CBAE861C31098C00EEFDA2 /* AICategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CBAE851C31098C00EEFDA2 /* AICategories.m */; };
+		82CFD8F41B6BEFC400D3F5B0 /* AIReelAssistant.h in Headers */ = {isa = PBXBuildFile; fileRef = 82CFD8F21B6BEFC400D3F5B0 /* AIReelAssistant.h */; };
+		82CFD8F51B6BEFC400D3F5B0 /* AIReelAssistant.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CFD8F31B6BEFC400D3F5B0 /* AIReelAssistant.m */; };
+		82CFD8F81B6BF04900D3F5B0 /* AIClickableTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 82CFD8F61B6BF04900D3F5B0 /* AIClickableTextField.h */; };
+		82CFD8F91B6BF04900D3F5B0 /* AIClickableTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CFD8F71B6BF04900D3F5B0 /* AIClickableTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +155,12 @@
 		82B9C9EE1969374700FDF7AD /* tapedoc.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tapedoc.png; sourceTree = "<group>"; };
 		82C2AD711901166B0085D2D4 /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		82C2AD73190116720085D2D4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		82CBAE811C31093200EEFDA2 /* AICategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AICategories.h; sourceTree = "<group>"; };
+		82CBAE851C31098C00EEFDA2 /* AICategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AICategories.m; sourceTree = "<group>"; };
+		82CFD8F21B6BEFC400D3F5B0 /* AIReelAssistant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIReelAssistant.h; sourceTree = "<group>"; };
+		82CFD8F31B6BEFC400D3F5B0 /* AIReelAssistant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIReelAssistant.m; sourceTree = "<group>"; };
+		82CFD8F61B6BF04900D3F5B0 /* AIClickableTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AIClickableTextField.h; sourceTree = "<group>"; };
+		82CFD8F71B6BF04900D3F5B0 /* AIClickableTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AIClickableTextField.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -229,21 +241,27 @@
 		82296E2618F10AEB00328B27 /* AIEdit */ = {
 			isa = PBXGroup;
 			children = (
+				82CBAE811C31093200EEFDA2 /* AICategories.h */,
+				82CBAE851C31098C00EEFDA2 /* AICategories.m */,
 				8241E8391980D1F600EC8E6A /* AIReelRecorder.h */,
 				8241E83A1980D1F600EC8E6A /* AIReelRecorder.m */,
 				820067D9190115AD0082A6B1 /* AKPioneerTapeRecorder.h */,
 				820067DA190115AD0082A6B1 /* AKPioneerTapeRecorder.m */,
+				822204C61A5535A5003E7C09 /* AIAUViewFactory.h */,
 				82296E3218F10AEB00328B27 /* AIAppDelegate.h */,
 				82296E3318F10AEB00328B27 /* AIAppDelegate.mm */,
 				826647981972751400E30C60 /* AIAudioOutputPlayer.h */,
 				826647991972751400E30C60 /* AIAudioOutputPlayer.mm */,
-				822204C61A5535A5003E7C09 /* AIAUViewFactory.h */,
 				82296E5818F110AF00328B27 /* AITapeTrack.h */,
 				82296E5918F110AF00328B27 /* AITapeTrack.m */,
 				8241E8371980D02600EC8E6A /* tapemas.png */,
 				82B9C9EE1969374700FDF7AD /* tapedoc.png */,
 				82296E5418F10C7F00328B27 /* cassette90.png */,
 				82296E3518F10AEB00328B27 /* MainMenu.xib */,
+				82CFD8F61B6BF04900D3F5B0 /* AIClickableTextField.h */,
+				82CFD8F71B6BF04900D3F5B0 /* AIClickableTextField.m */,
+				82CFD8F21B6BEFC400D3F5B0 /* AIReelAssistant.h */,
+				82CFD8F31B6BEFC400D3F5B0 /* AIReelAssistant.m */,
 				824EE2E818F43D2C00F9E75F /* AVAudioGapPlayer.h */,
 				824EE2E918F43D2C00F9E75F /* AVAudioGapPlayer.m */,
 				829933731A905EC200259804 /* AIInspectorWindow.h */,
@@ -322,9 +340,12 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82CBAE831C31093200EEFDA2 /* AICategories.h in Headers */,
 				824CB0C01A662B8500C1714B /* AudioDevice.h in Headers */,
 				824CB0C11A662B8500C1714B /* AudioDeviceList.h in Headers */,
 				829933761A905EC200259804 /* AIInspectorWindow.h in Headers */,
+				82CFD8F41B6BEFC400D3F5B0 /* AIReelAssistant.h in Headers */,
+				82CFD8F81B6BF04900D3F5B0 /* AIClickableTextField.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				826647D91972898E00E30C60 /* CAXException.cpp in Sources */,
+				82CBAE861C31098C00EEFDA2 /* AICategories.m in Sources */,
 				82296E3418F10AEB00328B27 /* AIAppDelegate.mm in Sources */,
 				826647D41972898E00E30C60 /* CAAudioChannelLayoutObject.cpp in Sources */,
 				8241E83B1980D1F600EC8E6A /* AIReelRecorder.m in Sources */,
@@ -446,6 +468,8 @@
 				82296E2D18F10AEB00328B27 /* main.m in Sources */,
 				826647D31972898E00E30C60 /* CAAudioChannelLayout.cpp in Sources */,
 				824CB0BD1A66267500C1714B /* AudioDevice.cpp in Sources */,
+				82CFD8F91B6BF04900D3F5B0 /* AIClickableTextField.m in Sources */,
+				82CFD8F51B6BEFC400D3F5B0 /* AIReelAssistant.m in Sources */,
 				826647D61972898E00E30C60 /* CAComponent.cpp in Sources */,
 				820067DC190115AD0082A6B1 /* ORSSerialPortManager.m in Sources */,
 				82296E5A18F110AF00328B27 /* AITapeTrack.m in Sources */,

@@ -8,12 +8,17 @@
 
 #import "AIAppDelegate.h"
 #import "AVAudioGapPlayer.h"
+
+
+
 @implementation AIAppDelegate
 #define DEGREES_TO_RADIANS(angle) ((angle) / 180.0 * M_PI)
 
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // 
+    //
+    [self.tapelen setDelegate:self];
     NSError *e;
     if([[NSFileManager defaultManager]fileExistsAtPath:TMPDIR])
         [[NSFileManager defaultManager]removeItemAtPath:TMPDIR error:nil];
@@ -58,20 +63,43 @@
     
     [self.masterProcProg startAnimation:self];
     [self.filetable setDelegate:self];
+    [self.tapelen resignFirstResponder];
+    
+    dbTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_dbMeter) userInfo:nil repeats:true];
+    
+    [self.bar1 rotateByAngle:270.0f];
+    self.bar1.frame= CGRectMake(10, 30, 12, 220);
+    [self.bar2 rotateByAngle:270.0f];
+    self.bar2.frame= CGRectMake(32, 30, 12, 220);
+}
+double dbamp(double db) { return pow(10., 0.05 * db); }
+double ampdb(double amp) { return 20. * log10(amp); }
+
+- (void) _dbMeter {
+    double rms = (double)[[AIAudioOutputPlayer sharedAudioFilePlayer]meterForChannel:0];
+    self.bar1.doubleValue = dbamp(rms);
+    double ph= (double)[[AIAudioOutputPlayer sharedAudioFilePlayer]peakForChannel:0];
+    self.bar2.doubleValue = dbamp(ph);
+    self.phDisp.stringValue = (ph == -120 ? @"-∞": [NSString stringWithFormat:@"%.0f", ph]);
+    self.rmsDisp.stringValue = (rms == -120 ? @"-∞": [NSString stringWithFormat:@"%.0f", rms]);
+    self.phDisp.backgroundColor = ph > 0 ? [NSColor redColor] : [NSColor clearColor];
+    self.rmsDisp.backgroundColor = rms > 0 ? [NSColor redColor] : [NSColor clearColor];
     
 }
+
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
     if(self.filetable.selectedRow < 0 || self.filetable.selectedRow >= files.count) {
         [insp close];
         return;
     }
     AITapeTrack* nus = files[self.filetable.selectedRow];
-    if ([nus.player isKindOfClass:[AVAudioGapPlayer class]]) {
-        [insp close];
-    } else {
+    
         [insp show];
         [insp loadTrack:nus];
-    }
+    
+}
+- (void) AIInspectorDidChangeTrack {
+    [self.filetable reloadData];
 }
 -(void)panel:(NSPanel*)p {
     [[NSApplication sharedApplication] beginSheet:p
@@ -119,6 +147,7 @@
         [self previewStop:nil];
     }
     [self.prevPlay setEnabled:false];
+    [self.startBtn setEnabled:false];
     [self.recBtn setEnabled:false];
     [self.statis setStringValue:NSLocalizedString(@"Recording side A...", @"Message")];
     [self.tapelen setEnabled:false];
@@ -139,10 +168,18 @@
     self->start = [NSDate date];
     [self _timer];
     [self _trackEndReached];
+    [self.emergencyStopBtn setEnabled:true];
 }
 - (IBAction)start2:(id)sender {
+    if (currentIdx == -1) {
+        currentIdx = 0;
+    }
+    while (currentIdx < files.count && ((AITapeTrack*)files[currentIdx]).predictedSide != SideB) {
+        currentIdx++;
+    }
     [self.statis setStringValue:NSLocalizedString(@"Recording side B...", @"Message")];
     [self.startBtn setEnabled:false];
+    [self.recBtn setEnabled:false];
     if (sender && self.recauto.state == 1 && deck) {
         [deck record];
         [deck play];
@@ -157,6 +194,7 @@
     start = [NSDate date];
     [self _timer];
     [self _trackEndReached];
+    [self.emergencyStopBtn setEnabled:true];
 }
 - (void) _doneAction {
     if (deck) {
@@ -183,6 +221,21 @@
         }
     } else NSLog(@"No deck!");
 }
+- (void) _finalize {
+    [self.header setStringValue:@"AIEdit 2"];
+    [self.recBtn setEnabled:true];
+    [self.outSel setEnabled:true];
+    [self.startBtn setEnabled:true];
+    [self.tapelen setEnabled:true];
+    [self.prevPlay setEnabled:true];
+    [self notifyWithTitle:NSLocalizedString(@"Copying finished!", @"Notif title")   andText:NSLocalizedString(@"Finished copying to tape.",@"Notif message")];
+    cur = nil;
+    isRecording = false;
+    start = nil;
+    currentIdx = -1;
+    [self _doneAction];
+    [self.filetable reloadData];
+}
 NSDate *trkstart;
 - (void) _trackEndReached {
     if (currentIdx >= 0 && currentIdx < files.count) {
@@ -203,20 +256,8 @@ NSDate *trkstart;
 
     currentIdx++;
     if(currentIdx >= files.count) {
-        [self.recBtn setEnabled:true];
-        [self.outSel setEnabled:true];
-        [self.startBtn setEnabled:false];
-        [self.tapelen setEnabled:true];
         [self.statis setStringValue:NSLocalizedString(@"Finished. Enjoy :)", @"Message")];
-        [self.header setStringValue:@"AIEdit 2"];
-         [self.prevPlay setEnabled:true];
-        [self notifyWithTitle:NSLocalizedString(@"Copying finished!", @"Notif title")   andText:NSLocalizedString(@"Finished copying to tape.",@"Notif message")];
-        cur = nil;
-        isRecording = false;
-        start = nil;
-        currentIdx = -1;
-        [self _doneAction];
-        [self.filetable reloadData];
+        [self _finalize];
         return;
     }
     AITapeTrack*t  = files[currentIdx];
@@ -266,7 +307,7 @@ NSDate *trkstart;
 }
 - (void) _timer {
     if (start) {
-        [self.header setStringValue:[self timeFormatted:[[NSDate date] timeIntervalSinceDate:start]]];
+        [self.header setStringValue:[NSString stringWithTimeInterval:[[NSDate date] timeIntervalSinceDate:start]]];
        [self performSelector:@selector(_timer) withObject:nil afterDelay:1.0];
     }
 
@@ -277,15 +318,7 @@ NSDate *trkstart;
 }
 
 
-- (NSString *)timeFormatted:(int)totalSeconds
-{
-    
-    int seconds = totalSeconds % 60;
-    int minutes = (totalSeconds / 60) % 60;
-    int hours = totalSeconds / 3600;
-    
-    return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
-}
+
 - (IBAction)gap:(NSControl *)sender {
     AVAudioGapPlayer*g = [[AVAudioGapPlayer alloc]initWithDelegate:self length:sender.tag];
     [self _addFromAudioPlayer:g file:nil];
@@ -356,8 +389,8 @@ NSDate *trkstart;
         [self _fillMeters];
     }
 }
-- (IBAction)newProject:(id)sender {
-    if (isRecording) return;
+- (bool) _clearProject {
+    if (isRecording) return false;
     NSAlert* msgBox = [[NSAlert alloc] init] ;
     [msgBox setMessageText: NSLocalizedString(@"New project?", @"Msgbox")];
     [msgBox setInformativeText:NSLocalizedString(@"This will clear the current project!", @"Msgbox")];
@@ -369,16 +402,22 @@ NSDate *trkstart;
         [self _fillMeters];
         [self.tapelen setStringValue:@"90"];
         [self zeroEqGlobal:nil];
-       // [self zeroEqSel:nil];
+        // [self zeroEqSel:nil];
+        return true;
     }
+    return false;
 }
+- (IBAction)newProject:(id)sender {
+    [self _clearProject];
+}
+
 - (void) _addFromAudioPlayer: (AVAudioPlayer*)p file:(NSURL*)file{
     [p prepareToPlay];
     AITapeTrack*t = [AITapeTrack new];
     if (precalcMinutes + (p.duration/60) > self.tapelen.floatValue) {
         NSAlert* msgBox = [[NSAlert alloc] init] ;
         [msgBox setMessageText: [NSString stringWithFormat:NSLocalizedString(@"Cannot add %@ to tracklist", @"error message"),([p isKindOfClass:[AVAudioGapPlayer class]] ? @"Gap" : [file pathComponents].lastObject) ]];
-        [msgBox setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"It's length is %@, but you only have %@ left.", @"error description"), [self timeFormatted:p.duration], [self timeFormatted:(self.tapelen.integerValue*60 - (precalcMinutes*60))]]];
+        [msgBox setInformativeText:[NSString stringWithFormat:NSLocalizedString(@"It's length is %@, but you only have %@ left.", @"error description"), [NSString stringWithTimeInterval:p.duration], [NSString stringWithTimeInterval:(self.tapelen.integerValue*60 - (precalcMinutes*60))]]];
         [msgBox addButtonWithTitle: @"OK"];
         [msgBox runModal];
     } else {
@@ -388,7 +427,7 @@ NSDate *trkstart;
         else
             [t setPredictedSide:SideA];
         [t setFname: ([p isKindOfClass:[AVAudioGapPlayer class]] ? @"Gap" : [file pathComponents].lastObject)];
-        [t setDurStr: [self timeFormatted:p.duration]];
+        [t setDurStr: [NSString stringWithTimeInterval:p.duration]];
         [t setDur:p.duration];
         if([p isKindOfClass:[AVAudioGapPlayer class]])[t setPlayer:p];
         [files addObject:t];
@@ -431,8 +470,8 @@ NSDate *trkstart;
         precalcMinutes += t.dur/60;
     }
     [self.fma setDoubleValue:MIN(1, Aside / (self.tapelen.floatValue/2))]; [self.fmb setDoubleValue:MIN(1, Bside / (self.tapelen.floatValue/2))];
-    [self.remainA setStringValue: [NSString stringWithFormat:@"-%@", [self timeFormatted: ((self.tapelen.floatValue/2) - Aside) * 60]]];
-    [self.remainB setStringValue: [NSString stringWithFormat:@"-%@", [self timeFormatted: ((self.tapelen.floatValue/2) - Bside) * 60]]];
+    [self.remainA setStringValue: [NSString stringWithFormat:@"-%@", [NSString stringWithTimeInterval: ((self.tapelen.floatValue/2) - Aside) * 60]]];
+    [self.remainB setStringValue: [NSString stringWithFormat:@"-%@", [NSString stringWithTimeInterval: ((self.tapelen.floatValue/2) - Bside) * 60]]];
     
     
 }
@@ -459,12 +498,15 @@ NSDate *trkstart;
     } else  if ([[[tableColumn headerCell]title]isEqualToString:@"Duration"] ) {
         return t.durStr;
     } else  if ([[[tableColumn headerCell]title]isEqualToString:@"Side"] ) {
-        return (t.predictedSide == SideA ? NSLocalizedString(@"Side A", @"Table") : NSLocalizedString(@"Side B", @"Table"));
+        return (t.predictedSide == SideA ? NSLocalizedString(@"A", @"Table") : NSLocalizedString(@"B", @"Table"));
     } else {
         if (isPreviewing && previewCur == row) {
             return NSLocalizedString(@"P→",@"Indicator Preview");
         }
-        return (currentIdx == row ? NSLocalizedString(@"R→",@"Indicator Record") : @"");
+        if (currentIdx == row ) {
+            return NSLocalizedString(@"R→",@"Indicator Record");
+        }
+        return [NSString stringWithFormat:@"%li", row+1];
     }
     return @"";
 }
@@ -570,6 +612,7 @@ NSInteger previewCur;
 bool isPreviewing, isRecording;
 - (IBAction)previewPrev:(id)sender {
     if(!isPreviewing || isRecording) return;
+    if(previewCur == 0) return;
     [[AIAudioOutputPlayer sharedAudioFilePlayer] stop];
     
     AITapeTrack *ot = (AITapeTrack*)files[previewCur];
@@ -603,6 +646,7 @@ bool isPreviewing, isRecording;
 }
 - (IBAction)previewNext:(id)sender {
      if(!isPreviewing || isRecording) return;
+    if(previewCur == files.count-1) return;
      [[AIAudioOutputPlayer sharedAudioFilePlayer] stop];
     
     AITapeTrack *ot = (AITapeTrack*)files[previewCur];
@@ -753,6 +797,15 @@ bool isPreviewing, isRecording;
 - (IBAction)mvDn:(id)sender {
 }
 
+
+-(void)textField:(AIClickableTextField*)textField didClick:(AIClickType)click {
+    if (textField == self.tapelen) {
+        if (click == AIRightClick) {
+            [self.reelAssist showRelativeToRect:self.tapelen.frame ofView:self.tpbox preferredEdge:NSMaxYEdge];
+        }
+    }
+}
+
 - (IBAction)outChange:(id)sender {
     NSInteger val = [self.outSel indexOfSelectedItem];
     AudioDeviceID newDevice = (mOutputDeviceList->GetList())[val].mID;
@@ -779,5 +832,112 @@ bool isPreviewing, isRecording;
         [[AIReelRecorder sharedInstance]createReel:[save URL] fromTracks:files pData:proj];
     }
     [self noPanel:self.masterProcPanel];
+}
+- (IBAction)emergencyStop:(id)sender {
+    NSAlert* msgBox = [[NSAlert alloc] init];
+    [msgBox setMessageText: @"Abort recording"];
+    [msgBox setInformativeText:@"Are you sure you want to stop recording?"];
+    
+    [msgBox addButtonWithTitle: @"Continue"];
+    [msgBox addButtonWithTitle: @"Stop"];
+    
+    if ([msgBox runModal] == 1001) {
+        [[AIAudioOutputPlayer sharedAudioFilePlayer]stop];
+        [self _finalize];
+    }
+    
+    
+}
+- (IBAction)chkLvl:(NSButton*)sender {
+    if (sender.state > 0) {
+         dbTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(_dbMeter) userInfo:nil repeats:true];
+    } else {
+        [dbTimer invalidate];
+        self.bar1.doubleValue = 0.0;
+        self.bar2.doubleValue = 0.0;
+        self.rmsDisp.stringValue = @"off";
+        self.phDisp.stringValue = @"off";
+    }
+}
+
+- (IBAction)smartAdd:(id)sender {
+    if ([self _clearProject]) {
+            NSOpenPanel *openPanel = [[NSOpenPanel alloc] init];
+            [openPanel setCanChooseFiles:true];
+            [openPanel setResolvesAliases:true];
+            [openPanel setRepresentedFilename:[@"~/Music" stringByExpandingTildeInPath]];
+            [openPanel setCanChooseDirectories:false];
+            [openPanel setAllowsMultipleSelection:true];
+            [openPanel setAllowedFileTypes:[NSArray arrayWithObjects:@"mp3", @"m4a", @"wav", @"", nil]];
+            if ([openPanel runModal] == NSOKButton)
+            {
+                NSMutableArray *sourceBin = [NSMutableArray new];
+                NSMutableArray *sideABin = [NSMutableArray new];
+                NSMutableArray *sideBBin = [NSMutableArray new];
+                float sideARemains =  _tapelen.stringValue.floatValue/2.0f;
+                float sideBRemains =  _tapelen.stringValue.floatValue/2.0f;
+                float totalRemains = _tapelen.stringValue.floatValue;
+                
+                for (NSURL*file in openPanel.URLs) {
+                    AVAudioPlayer* p = [[AVAudioPlayer alloc]initWithContentsOfURL:file error:nil];
+                    totalRemains -= p.duration/60.0f;
+                    [sourceBin addObject:p];
+                }
+                
+                
+                // now sort the source bin, largest file first
+                sourceBin = [sourceBin sortedArrayUsingComparator:^NSComparisonResult(AVAudioPlayer* obj1, AVAudioPlayer* obj2) {
+                    if (obj1.duration < obj2.duration) {
+                        return NSOrderedDescending;
+                    } else if (obj1.duration > obj2.duration) {
+                        return NSOrderedAscending;
+                    }
+                    return NSOrderedSame;
+                }].mutableCopy;
+                
+                // we could use a bin solving task there but we need to have at least *something like* a control over sides, nothing beats a manual compilation tho
+                
+                // first fill the A bin
+                for(int i = 0; i < sourceBin.count; i++) {
+                    AVAudioPlayer *p = sourceBin[i];
+                    if (p.duration/60.0f <= sideARemains) {
+                        [sideABin addObject:p];
+                        sideARemains -= p.duration/60.0f;
+                        [sourceBin removeObject:p];
+                        i--;
+                    }
+                }
+                
+                // next fill the B bin
+                for(int i = 0; i < sourceBin.count; i++) {
+                    AVAudioPlayer *p = sourceBin[i];
+                    if (p.duration/60.0f <= sideBRemains) {
+                        [sideBBin addObject:p];
+                        sideBRemains -= p.duration/60.0f;
+                        [sourceBin removeObject:p];
+                        i--;
+                    }
+                }
+                
+                if (sourceBin.count > 0) {
+                    NSAlert* msgBox = [[NSAlert alloc] init];
+                    [msgBox setMessageText: NSLocalizedString(@"Oops, that won't fit", @"Smart Add Error")];
+                    NSMutableString *inf = [NSMutableString stringWithFormat:NSLocalizedString(@"Terribly sorry about this, but your total content length is more than your total tape length (need %g minute long cassette/reel). \n\nThese tracks were left out: ", @"Smart Add Error"),round(_tapelen.stringValue.floatValue+(totalRemains*-1))];
+                    for (AVAudioPlayer*p  in sourceBin) {
+                        [inf appendFormat:@"    • %@\n",[[[p.url absoluteString] lastPathComponent]stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+                    }
+                    [msgBox setInformativeText:inf];
+                    [msgBox addButtonWithTitle: @"OK"];
+                    [msgBox runModal];
+                }
+                
+                for (AVAudioPlayer*p in sideABin) {
+                    [self _addFromAudioPlayer:p file:p.url];
+                }
+                for (AVAudioPlayer*p in sideBBin) {
+                    [self _addFromAudioPlayer:p file:p.url];
+                }
+            }
+    }
 }
 @end

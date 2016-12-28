@@ -10,29 +10,29 @@
 	<string>AIEdit</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>60B04AF8-3B87-4F0A-95CD-DABE90AAB033</key>
+		<key>21A183A6168D2E3CCCB8861A745A76E23A1C2FFF</key>
 		<string>https://github.com/vladkorotnev/TapeStuff.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>AIEdit/AIEdit.xcodeproj/project.xcworkspace</string>
+	<string>AIEdit/AIEdit.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>60B04AF8-3B87-4F0A-95CD-DABE90AAB033</key>
+		<key>21A183A6168D2E3CCCB8861A745A76E23A1C2FFF</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/vladkorotnev/TapeStuff.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>60B04AF8-3B87-4F0A-95CD-DABE90AAB033</string>
+	<string>21A183A6168D2E3CCCB8861A745A76E23A1C2FFF</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>60B04AF8-3B87-4F0A-95CD-DABE90AAB033</string>
+			<string>21A183A6168D2E3CCCB8861A745A76E23A1C2FFF</string>
 			<key>IDESourceControlWCCName</key>
 			<string>TapeStuff</string>
 		</dict>

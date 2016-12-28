@@ -15,8 +15,10 @@
 #import "AIReelRecorder.h"
 #import <CoreAudio/CoreAudio.h>
 #import "AIInspectorWindow.h"
+#import "AICategories.h"
+#import "AIClickableTextField.h"
 #define TMPDIR [NSTemporaryDirectory() stringByAppendingPathComponent:@"AIEditReelTMP"]
-@interface AIAppDelegate : NSObject <NSApplicationDelegate, AVAudioPlayerDelegate, NSTableViewDataSource, NSTableViewDelegate>
+@interface AIAppDelegate : NSObject <NSApplicationDelegate, AVAudioPlayerDelegate, NSTableViewDataSource, NSTableViewDelegate,NSTextFieldDelegate, AIInspectorDelegate>
 {
     NSMutableArray* files;
     float precalcMinutes;
@@ -28,13 +30,22 @@
     AudioDeviceList	*				mOutputDeviceList;
     AudioDeviceID					outputDevice;
     AIInspectorWindow *insp;
+    NSTimer *dbTimer;
 }
+@property (weak) IBOutlet NSTextField *rmsDisp;
+@property (weak) IBOutlet NSTextField *phDisp;
+- (IBAction)emergencyStop:(id)sender;
+@property (weak) IBOutlet NSButton *emergencyStopBtn;
 - (IBAction)openReel:(id)sender;
 - (IBAction)unpackTape:(id)sender;
 @property (weak) IBOutlet NSPopUpButton *outSel;
 - (IBAction)outChange:(id)sender;
 @property (weak) IBOutlet NSButton *leadin;
+@property (weak) IBOutlet NSPopover *reelAssist;
+- (IBAction)chkLvl:(id)sender;
+- (IBAction)smartAdd:(id)sender;
 
+@property (weak) IBOutlet NSBox *tpbox;
 - (IBAction)packTape:(id)sender;
 @property (weak) IBOutlet NSProgressIndicator *masterProcProg;
 @property (unsafe_unretained) IBOutlet NSPanel *masterProcPanel;
@@ -52,7 +63,7 @@
 @property (weak) IBOutlet NSPopUpButton *sideDoneAction;
 @property (weak) IBOutlet NSPopUpButton *portList;
 @property (weak) IBOutlet NSTextField *header;
-@property (weak) IBOutlet NSTextField *tapelen;
+@property (weak) IBOutlet AIClickableTextField *tapelen;
 @property (weak) IBOutlet NSSlider *selLvl;
 @property (assign) IBOutlet NSWindow *window;
 @property (weak) IBOutlet NSTextField *statis;

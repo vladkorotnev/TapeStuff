@@ -9,7 +9,9 @@
 #import <AVFoundation/AVFoundation.h>
 
 @interface AVAudioGapPlayer : AVAudioPlayer <NSCoding> {
+    @public
     NSTimeInterval length;
+    @protected
     id<AVAudioPlayerDelegate> del;
 }
 

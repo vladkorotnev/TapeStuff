@@ -22,4 +22,6 @@
 - (void) BuildDeviceMenuFromList:(AudioDeviceList *)devlist inMenu:(NSPopUpButton *)menu initial:(AudioDeviceID) initSel;
 - (void) setAudioOutputDevice:(AudioDeviceID)oid;
 - (void) setVol:(float) vol;
+- (Float32) meterForChannel:(AudioUnitElement)channel ;
+- (Float32)peakForChannel:(AudioUnitElement) channel;
 @end
